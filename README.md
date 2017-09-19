@@ -9,6 +9,9 @@ Group Members:
 
 Sebastian Adame
 Harold Agnote
+
 Stephanie Gomez
+
 Sergio Perez
+
 Aimee Threlkeld
