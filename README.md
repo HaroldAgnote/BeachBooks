@@ -1,8 +1,11 @@
 # BeachBooks
 
 California State University, Long Beach
+
 CECS - 343
+
 Intro to Software Engineering
+
 Semester Long Project
 
 Group Members:
