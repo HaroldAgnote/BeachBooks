@@ -4,32 +4,37 @@
 }
 
 .navbar{
-    color: black;
+    color: #2567bc;
     text-shadow: none;
     background-color: #3ebdbd;
 }
 
-#home-effect{
+#index-effect{
     background: radial-gradient(circle, #fff 20%, #fcff4f 10%, #c9ffff 60%);
+}
+
+div.boxcol{
+    background-color: white;
+    transition: background-color 0.3s;
+}
+
+div.boxcol:hover{
+    background-color: #c9ffff;
 }
 
 div{
     color: black;
 }
 
-div:hover{
-    background-color:
-}
-
 a.outset{
     border: 2px outset lightgrey;
 }
 
-a.outset:hover{
+a.outset:visited{
     border: 2px outset black;
 }
 
-a.outset:visited{
+a.outset:hover{
     border: 2px outset black;
 }
 
@@ -37,6 +42,27 @@ a.outset:active{
     border: 2px outset black;
 }
 
-#input-style{
+input.circular{
     border-radius: 60px;
+}
+
+th{
+    background-color: #3ebdbd;
+}
+
+tr{
+    background-color: white;
+    box-shadow: none;
+    transition: box-shadow 0.5s, background-color 0.5s;
+}
+
+tr:hover{
+    background-color: lightgrey;
+    box-shadow: 0 0 6px #494949;
+}
+
+tr:active{
+    background-color: #848484;
+    box-shadow: 0 0 6px #494949;
+    transition: background-color 0s;
 }
