@@ -2,3 +2,41 @@
     margin-top: 3em;
     width:100%;
 }
+
+.navbar{
+    color: black;
+    text-shadow: none;
+    background-color: #3ebdbd;
+}
+
+#home-effect{
+    background: radial-gradient(circle, #fff 20%, #fcff4f 10%, #c9ffff 60%);
+}
+
+div{
+    color: black;
+}
+
+div:hover{
+    background-color:
+}
+
+a.outset{
+    border: 2px outset lightgrey;
+}
+
+a.outset:hover{
+    border: 2px outset black;
+}
+
+a.outset:visited{
+    border: 2px outset black;
+}
+
+a.outset:active{
+    border: 2px outset black;
+}
+
+#input-style{
+    border-radius: 60px;
+}
