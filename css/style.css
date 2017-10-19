@@ -42,6 +42,10 @@ a.outset:active{
     border: 2px outset black;
 }
 
+input.searchbar{
+    
+}
+
 input.circular{
     border-radius: 60px;
 }
