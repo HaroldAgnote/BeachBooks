@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link href="css/starter-template.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <title>BeachBooks - Sign Up</title>
+        <title>BeachBooks - Set Up Appointment</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -47,41 +47,58 @@
                 </div><!--/.nav-collapse -->
             </div>
         </nav>
+
         <div id="sign-in-up" class="container center-block row">
 
-            <div class="col-md-6 boxcol">
-                <form class="form-signin">
-                    <h2 class="form-signin-heading">Sign In and Sell!</h2>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <div class="col-md-12 boxcol">
+                <h1 class="form-signin-heading">MAKE AN APPOINTMENT</h1>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                        <div class="col-sm-4">
+                            <form><label>Month</label>
+                            <select class="form-control" name="appoint-month">
+                                <option value="jan">January</option>
+                                <option value="feb">February</option>
+                                <option value="mar">March</option>
+                                <option value="apr">April</option>
+                                <option value="may">May</option>
+                                <option value="jun">June</option>
+                                <option value="jul">July</option>
+                                <option value="aug">August</option>
+                                <option value="sep">September</option>
+                                <option value="oct">October</option>
+                                <option value="nov">November</option>
+                                <option value="dec">December</option>
+                            </select></form>
+                        </div>
+                        <div class="col-sm-4">
+                            <form><label>Day</label>
+                            <input class="form-control" type="number" name="appoint-day" min="1" max="31" value="1">
+                            </input></form>
+                        </div>
+                        <div class="col-sm-4">
+                            <form><label>Time</label>
+                            <input class="form-control" type="time" name="appoint_time"></form>
+                        </div>
+                </div><br>
+                <form>
+                    <label>Specifications</label>
+                    <input class="form-control" type="text" name="appoint-specs"
+                        placeholder="Enter a specific area or building you want to meet up at here..."></input>
                 </form>
             </div>
 
-            <div class="col-md-6 boxcol">
+            <!--Google API -->
+            <div class="col-md-6">
                 <form class="form-signin">
-                    <h2 class="form-signin-heading">Create an Account!</h2>
-                    <label for="inputFirst" class="sr-only">First Name</label>
-                    <input type="text" id="inputFirst" class="form-control"
-                    placeholder="First Name" required autofocus>
-                    <label for="inputLast" class="sr-only">Last</label>
-                    <input type="text" id="inputLast" class="form-control"
-                    placeholder="Last Name" required autofocus>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                 </form>
             </div>
 
-        </div> <!-- /container -->
+        </div>
+
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

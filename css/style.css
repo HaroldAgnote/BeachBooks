@@ -43,7 +43,7 @@ a.outset:active{
 }
 
 input.searchbar{
-    
+
 }
 
 input.circular{
@@ -69,4 +69,8 @@ tr:active{
     background-color: #848484;
     box-shadow: 0 0 6px #494949;
     transition: background-color 0s;
+}
+
+form > h2{
+  text-transform: uppercase;
 }
