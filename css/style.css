@@ -71,10 +71,14 @@ tr:active{
     transition: background-color 0s;
 }
 
-form > h2{
+#emph{
   text-transform: uppercase;
 }
 
 .important{
   color: red;
+}
+
+textarea{
+  resize: none;
 }
