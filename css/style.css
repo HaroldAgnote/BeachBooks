@@ -82,3 +82,12 @@ tr:active{
 textarea{
   resize: none;
 }
+
+input.nav-field{
+  height:20px;
+  border-radius:0;
+}
+
+#no-margin{
+  margin:0;
+}
