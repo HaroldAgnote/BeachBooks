@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link href="css/starter-template.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <title>BeachBooks - Home</title>
+        <title>BeachBooks - Request</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
