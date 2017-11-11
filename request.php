@@ -1,3 +1,7 @@
+<!-- Eventually turn this entire page into a dropdown scrollbar on the navbar to see requests
+anywhere without leaving the current page, much like the notification button on the navbar
+on YouTube when you are logged in -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,81 +21,25 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
-        <div class="container">
-            <table class="table table-bordered" id="bookList">
-                <tr>
-                    <th>Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Edition</th>
-                    <th>Used in Course</th>
-                    <th>Condition</th>
-                </tr>
-                <tr class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                    <td>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
-                        <button type="button" data-toggle="modal" data-target="#myModal">Insert Cover Page Here</button>
-                        </button>
-                    </td>
-                    <td>The Book of Everything</td>
-                    <td>Charles Barkley</td>
-                    <td>4th Edition</td>
-                    <td>
-                        <ul>
-                            <li>CECS 100 </li>
-                            <li>CECS 174 </li>
-                            <li>CECS 228 </li>
-                            <li>CECS 274 </li>
-                        </ul>
-                    </td>
-                    <td>Fair</td>
-                </tr>
-                <tr class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                    <td>
-                        <img src="http://www.heritagebooks.com.np/images/product/1469943825a_txt_book_for_enginneee.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
-                        <button type="button" data-toggle="modal" data-target="#myModal">Insert Cover Page Here</button>
-                        </button>
-                    </td>
-                    <td>The Book of Everything</td>
-                    <td>Charles Barkley</td>
-                    <td>4th Edition</td>
-                    <td>
-                        <ul>
-                            <li>CECS 100 </li>
-                            <li>CECS 174 </li>
-                            <li>CECS 228 </li>
-                            <li>CECS 274 </li>
-                        </ul>
-                    </td>
-                    <td>Fair</td>
-                </tr>
-            </table>
-        </div><!-- /.container -->
+        <div class="col-md-12">
+            <h1 class="form-signin-heading" style="text-align:center;">REQUESTS</h1>
+        </div>
 
-        <!-- Modal -->
+
         <div class="container">
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4>BeachBooks</h4>
-                        </div>
-                        <div class="modal-body">
-                            <ul>
-                                <li>Book Title</li>
-                                <li>Author</li>
-                                <li>Edition</li>
-                                <li>Being sold by: </li>
-                            </ul>
-                            <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Take the Offer</a>
-                                BeachBooks
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="list-group">
+                <button class="list-group-item">
+                    <h4 class="list-group-item-heading">CECS 100</h4>
+                    <p class="list-group-item-text">Requested by: <b><i>Username A</i></b></p>
+                </button>
+                <button class="list-group-item">
+                    <h4 class="list-group-item-heading">CECS 174</h4>
+                    <p class="list-group-item-text">Requested by: <b><i>Username B</i></b></p>
+                </button>
+                <button class="list-group-item">
+                    <h4 class="list-group-item-heading">CECS 274</h4>
+                    <p class="list-group-item-text">Requested by: <b><i>Username C</i></b></p>
+                </button>
             </div>
         </div>
 
