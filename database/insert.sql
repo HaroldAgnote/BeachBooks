@@ -1,3 +1,13 @@
+SELECT * FROM Users;
+SELECT * FROM SystemAdmin;
+SELECT * FROM Client;
+SELECT * FROM Buyer;
+SELECT * FROM Seller;
+SELECT * FROM Book;
+SELECT * FROM Classes;
+SELECT * FROM Copy;
+
+
 -- Inserting Fake Users
 -- USER: UserID, Password, LoginStatus
 INSERT INTO Users VALUES ('U0000', 'test0', NULL);
@@ -41,12 +51,12 @@ INSERT INTO Seller VALUES ('S002', 'U0005'); -- Neil Wong is a seller (just a se
 
 -- Inserting Fake Classes
 -- CLASSES: ClassID, SubjectName, SubjectNum, CourseName
-INSERT INTO Classes VALUES ('C001', 'CECS', 100, 'Crit Think in Digital Age');
-INSERT INTO Classes VALUES ('C002', 'CECS', 105, 'Intro to CECS');
-INSERT INTO Classes VALUES ('C003', 'CECS', 110, 'Beg Web Design');
-INSERT INTO Classes VALUES ('C004', 'CECS', 174, 'Intro Prog & Problem Solv');
-INSERT INTO Classes VALUES ('C005', 'CECS', 200, 'Int Web Design');
-INSERT INTO Classes VALUES ('C006', 'CECS', 201, 'Comp Logic Design I');
+INSERT INTO Classes VALUES ('C001', 'CECS', '100', 'Crit Think in Digital Age');
+INSERT INTO Classes VALUES ('C002', 'CECS', '105', 'Intro to CECS');
+INSERT INTO Classes VALUES ('C003', 'CECS', '110', 'Beg Web Design');
+INSERT INTO Classes VALUES ('C004', 'CECS', '174', 'Intro Prog & Problem Solv');
+INSERT INTO Classes VALUES ('C005', 'CECS', '200', 'Int Web Design');
+INSERT INTO Classes VALUES ('C006', 'CECS', '201', 'Comp Logic Design I');
 
 -- Inserting Fake Books
 -- BOOKS: BookID, Title, Author, ISBN, Edition, Publisher, PublishDate, MSRP, ClassID
@@ -63,12 +73,15 @@ INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001', 'C001')
 INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004', 'C003');
 INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005', 'C006');
 
-SELECT * FROM Users;
-SELECT * FROM SystemAdmin;
-SELECT * FROM Client;
-SELECT * FROM Buyer;
-SELECT * FROM Seller;
-SELECT * FROM Book;
-SELECT * FROM Classes;
-SELECT * FROM Copy;
+SELECT (subjectname || ' '|| subjectnum) from classes;
 
+SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum), co.Conditions
+FROM Client c
+INNER JOIN Seller s
+ON c.USERID = s.USERID
+INNER JOIN copy co
+ON s.SELLERID = co.SELLERID
+INNER JOIN book b
+ON co.BOOKID = b.BOOKID
+INNER JOIN classes cl
+ON cl.CLASSID = b.CLASSID;
