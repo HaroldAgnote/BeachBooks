@@ -26,7 +26,7 @@
           <h1 class="cover-heading">Welcome to <strong id="web-name">BeachBooks</strong></h1>
           <p class="lead">A website for students to post and exchange their books at reasonable and affordable prices, or even for <strong>free</strong>, amongst themselves.</p>
           <p class="lead">
-            <a href="home.html" class="btn btn-lg btn-default outset">Learn more</a>
+            <a href="home.php" class="btn btn-lg btn-default outset">Learn more</a>
           </p>
         </div>
 
