@@ -1,13 +1,11 @@
-DROP TABLE Exchange;
-DROP TABLE Copy;
-DROP TABLE Seller;
-DROP TABLE Request;
-DROP TABLE Buyer;
-DROP TABLE Book;
-DROP TABLE SystemAdmin;
-DROP TABLE Client;
-DROP TABLE Classes;
-DROP TABLE Users;
+DROP TABLE IF EXISTS Copy;
+DROP TABLE IF EXISTS Seller;
+DROP TABLE IF EXISTS Buyer;
+DROP TABLE IF EXISTS Book;
+DROP TABLE IF EXISTS SystemAdmin;
+DROP TABLE IF EXISTS Client;
+DROP TABLE IF EXISTS Classes;
+DROP TABLE IF EXISTS Users;
 
 -- Create the table for Users
 CREATE TABLE Users (UserID varchar(30) NOT NULL,
@@ -41,10 +39,11 @@ CREATE TABLE Seller (SellerID varchar (30),
                      PRIMARY KEY (SellerID),
                      FOREIGN KEY (UserID) REFERENCES Client(UserID));
 
--- Create the table for Request ??
+-- Create the table for Request
 CREATE TABLE Request (RequestStatus boolean,
                       RequestID varchar (30),
                       BuyerID varchar (30),
+					  Approve boolean,
                       PRIMARY KEY (RequestID),
                       FOREIGN KEY (BuyerID) REFERENCES Buyer(BuyerID));
 
@@ -82,6 +81,7 @@ CREATE TABLE Copy (Conditions varchar (30),
 CREATE TABLE Exchange (Exchange varchar(30),
                        CopyID varchar (30),
                        RequestID varchar (30),
+					   ExchangeOccurred boolean,
                        PRIMARY KEY (RequestID, CopyID),
                        FOREIGN KEY (RequestID) REFERENCES Request(RequestID),
                        FOREIGN KEY (CopyID) REFERENCES Copy(CopyID));
