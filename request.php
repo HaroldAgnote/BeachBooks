@@ -21,27 +21,49 @@ on YouTube when you are logged in -->
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
-        <div class="col-md-12">
-            <h1 class="form-signin-heading" style="text-align:center;">REQUESTS</h1>
-        </div>
-
-
-        <div class="container">
-            <div class="list-group">
-                <button class="list-group-item">
-                    <h4 class="list-group-item-heading">CECS 100</h4>
-                    <p class="list-group-item-text">Requested by: <b><i>Username A</i></b></p>
-                </button>
-                <button class="list-group-item">
-                    <h4 class="list-group-item-heading">CECS 174</h4>
-                    <p class="list-group-item-text">Requested by: <b><i>Username B</i></b></p>
-                </button>
-                <button class="list-group-item">
-                    <h4 class="list-group-item-heading">CECS 274</h4>
-                    <p class="list-group-item-text">Requested by: <b><i>Username C</i></b></p>
-                </button>
+        <div class="container center-block row">
+            <div class="col-md-6">
+                <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Book A</a>
+                          </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                          <div class="panel-body"><h4>Request Info 1</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i></div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Book B</a>
+                            </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                          <div class="panel-body"><h4>Request Info 2</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i></div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Book C</a>
+                            </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body"><h4>Request Info 3</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i></div>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <div class="col-md-6">
+
+            </div>
 
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

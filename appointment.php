@@ -17,7 +17,7 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
-        <div id="sign-in-up" class="container center-block row">
+        <div class="container center-block row">
 
             <div class="col-md-12">
                 <h1 class="form-signin-heading" style="text-align:center;">MAKE AN APPOINTMENT</h1>

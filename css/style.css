@@ -72,26 +72,22 @@ tr:active{
 }
 
 #emph{
-  text-transform: uppercase;
+    text-transform: uppercase;
 }
 
 .important{
-  color: red;
+    color: red;
 }
 
 textarea{
-  resize: none;
+    resize: none;
 }
 
 input.nav-field{
-  height: 20px;
-  border-radius: 0;
+    height: 20px;
+    border-radius: 0;
 }
 
 #badge-spacing{
-  margin: 0 0 5px 0;
-}
-
-div.lsit-group button.list-group-item:active{
-  background-color:blue;
+    margin: 0 0 5px 0;
 }
