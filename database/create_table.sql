@@ -70,6 +70,7 @@ CREATE TABLE Book (BookID varchar (30),
 
 -- Create the table for Copy
 CREATE TABLE Copy (Conditions varchar (30),
+		   BookCover varchar(50),
                    SellingPrice integer,
                    CopyID  varchar (30),
                    SellerID varchar (30),
@@ -85,5 +86,4 @@ CREATE TABLE Exchange (Exchange varchar(30),
                        PRIMARY KEY (RequestID, CopyID),
                        FOREIGN KEY (RequestID) REFERENCES Request(RequestID),
                        FOREIGN KEY (CopyID) REFERENCES Copy(CopyID));
-		       
 		       
