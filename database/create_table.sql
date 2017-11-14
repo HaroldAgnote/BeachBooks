@@ -71,6 +71,7 @@ CREATE TABLE Book (BookID varchar (30),
 -- Create the table for Copy
 CREATE TABLE Copy (Conditions varchar (30),
     SellingPrice integer,
+    BookCover varchar(50),
     CopyID  varchar (30),
     SellerID varchar (30),
     BookID varchar (30),
