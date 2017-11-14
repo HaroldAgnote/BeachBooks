@@ -1,11 +1,13 @@
-DROP TABLE IF EXISTS Copy;
-DROP TABLE IF EXISTS Seller;
-DROP TABLE IF EXISTS Buyer;
-DROP TABLE IF EXISTS Book;
-DROP TABLE IF EXISTS SystemAdmin;
-DROP TABLE IF EXISTS Client;
-DROP TABLE IF EXISTS Classes;
-DROP TABLE IF EXISTS Users;
+DROP TABLE Exchange IF EXISTS Exchange;
+DROP TABLE Copy IF EXISTS Copy;
+DROP TABLE Seller IF EXISTS Seller;
+DROP TABLE Request IF EXISTS Request;
+DROP TABLE Buyer IF EXISTS Buyer;
+DROP TABLE Book IF EXISTS Book;
+DROP TABLE SystemAdmin IF EXISTS SystemAdmin;
+DROP TABLE Client IF EXISTS Client;
+DROP TABLE Classes IF EXISTS Classes;
+DROP TABLE Users IF EXISTS Users;
 
 -- Create the table for Users
 CREATE TABLE Users (UserID varchar(30) NOT NULL,
@@ -39,20 +41,19 @@ CREATE TABLE Seller (SellerID varchar (30),
     PRIMARY KEY (SellerID),
     FOREIGN KEY (UserID) REFERENCES Client(UserID));
 
--- Create the table for Request
+-- Create the table for Request ??
 CREATE TABLE Request (RequestStatus boolean,
     RequestID varchar (30),
     BuyerID varchar (30),
-    Approve boolean,
     PRIMARY KEY (RequestID),
     FOREIGN KEY (BuyerID) REFERENCES Buyer(BuyerID));
 
 -- Create the table for Classes
 CREATE TABLE Classes (ClassID varchar (30),
-    SubjectName varchar (30),
-    SubjectNum integer,
-    CourseName varchar (50),
-    PRIMARY KEY (ClassID));
+                      SubjectName varchar (30),
+                      SubjectNum varchar (30),
+                      CourseName varchar (50),
+                      PRIMARY KEY (ClassID));
 
 -- Create the table for Book
 CREATE TABLE Book (BookID varchar (30),
@@ -85,4 +86,3 @@ CREATE TABLE Exchange (Exchange varchar(30),
     PRIMARY KEY (RequestID, CopyID),
     FOREIGN KEY (RequestID) REFERENCES Request(RequestID),
     FOREIGN KEY (CopyID) REFERENCES Copy(CopyID));
-
