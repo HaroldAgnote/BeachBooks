@@ -55,6 +55,11 @@
                     ON cl.CLASSID = b.CLASSID; ";
 
                     $result = mysqli_query($db, $query);
+                    if($results->num_rows === 0) {
+                        echo 'No results';
+                    } else {
+                        echo 'Results';
+                    }
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
                         $seller = $result['clientName'];
