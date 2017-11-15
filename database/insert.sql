@@ -1,13 +1,3 @@
-SELECT * FROM Users;
-SELECT * FROM SystemAdmin;
-SELECT * FROM Client;
-SELECT * FROM Buyer;
-SELECT * FROM Seller;
-SELECT * FROM Book;
-SELECT * FROM Classes;
-SELECT * FROM Copy;
-
-
 -- Inserting Fake Users
 -- USER: UserID, Password, LoginStatus
 INSERT INTO Users VALUES ('U0000', 'test0', NULL);
@@ -68,35 +58,8 @@ INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2', 'Publis
 
 -- Inserting Copy Books
 -- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID, ClassID
-INSERT INTO Copy VALUES ('Good',      10.00,  'CY001', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004', 'C003');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005', 'C006');
-
-SELECT (subjectname || ' '|| subjectnum) from classes;
-
-SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum), co.Conditions
-FROM Client c
-INNER JOIN Seller s
-ON c.USERID = s.USERID
-INNER JOIN copy co
-ON s.SELLERID = co.SELLERID
-INNER JOIN book b
-ON co.BOOKID = b.BOOKID
-INNER JOIN classes cl
-ON cl.CLASSID = b.CLASSID;
-
-SELECT * 
-FROM client c
-INNER JOIN Seller s
-ON c.USERID = s.USERID
-INNER JOIN Copy c
-ON s.SELLERID = c.SELLERID
-INNER JOIN Book b
-ON c.BOOKID = b.BOOKID
-WHERE b.TITLE LIKE '%Title4%'
-OR 
-b.AUTHOR LIKE '%Neil%'
-OR
-c.CLIENTNAME LIKE '%Aimee%'
+INSERT INTO Copy VALUES ('Good',      10.00, 'random_link', 'CY001', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Bad',       25.00, 'random_link', 'CY002', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY003', 'S002', 'BK0004', 'C003');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY004', 'S002', 'BK0005', 'C006');
 

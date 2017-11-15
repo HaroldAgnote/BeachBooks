@@ -23,23 +23,24 @@
         </div>
 
         <div class="inner cover">
-          <h1 class="cover-heading">Welcome to <strong id="web-name">BeachBooks</strong></h1>
+          <h1 class="cover-heading">Welcome to <strong>BeachBooks</strong></h1>
           <p class="lead">A website for students to post and exchange their books at reasonable and affordable prices, or even for <strong>free</strong>, amongst themselves.</p>
           <p class="lead">
-            <a href="home.html" class="btn btn-lg btn-default outset">Learn more</a>
+            <a href="home.php" class="btn btn-lg btn-default outset">Learn more</a>
           </p>
         </div>
 
         <div class="mastfoot">
-          <div class="inner">
-            <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-          </div>
+              <ul style="display:inline-block;">
+                <li><a href="about.php">About BeachBooks</a></li>
+                <li><a href="privacy.php">Privacy</a></li>
+              </ul>
+            <!--<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>-->
+
         </div>
 
       </div>
-
     </div>
-
   </div>
   <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
