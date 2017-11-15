@@ -1,13 +1,3 @@
-SELECT * FROM Users;
-SELECT * FROM SystemAdmin;
-SELECT * FROM Client;
-SELECT * FROM Buyer;
-SELECT * FROM Seller;
-SELECT * FROM Book;
-SELECT * FROM Classes;
-SELECT * FROM Copy;
-
-
 -- Inserting Fake Users
 -- USER: UserID, Password, LoginStatus
 INSERT INTO Users VALUES ('U0000', 'test0', NULL);
@@ -68,8 +58,8 @@ INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2', 'Publis
 
 -- Inserting Copy Books
 -- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID, ClassID
-INSERT INTO Copy VALUES ('Good',      10.00,  'CY001', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004', 'C003');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005', 'C006');
+INSERT INTO Copy VALUES ('Good',      10.00, 'random_link', 'CY001', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Bad',       25.00, 'random_link', 'CY002', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY003', 'S002', 'BK0004', 'C003');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY004', 'S002', 'BK0005', 'C006');
 
