@@ -55,11 +55,6 @@
                     ON cl.CLASSID = b.CLASSID; ";
 
                     $result = mysqli_query($db, $query);
-                    if($results->num_rows === 0) {
-                        echo 'No results';
-                    } else {
-                        echo 'Results';
-                    }
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
                         $seller = $row['clientName'];
@@ -70,65 +65,25 @@
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
-                        <tr id=<?php echo $counter; ?> class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                            <td class="bookSeller">
-                                <?php echo $seller; ?>
-                            </td>
-                            <td>
-                                <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
-                            </td>
-                            <td class="bookTitle"><?php echo $title; ?></td>
-                            <td class="bookAuthor"><?php echo $author ?></td>
-                            <td class="bookEdition"><?php echo $condition ?></td>
-                            <td class="bookCourses"> <?php echo $class; ?></td>
-                            <td class="bookCondition"><?php echo $condition ?></td>
-                        </tr>
+                    <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
+                        <td class="bookSeller">
+                            <?php echo $seller; ?>
+                        </td>
+                        <td>
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
+                        </td>
+                        <td class="bookTitle"><?php echo $title; ?></td>
+                        <td class="bookAuthor"><?php echo $author ?></td>
+                        <td class="bookEdition"><?php echo $condition ?></td>
+                        <td class="bookCourses"> <?php echo $class; ?></td>
+                        <td class="bookCondition"><?php echo $condition ?></td>
+                    </tr>
                     
                 <?php
 
                     }
                 ?>
 
-                <tr id="book_1" class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                    <td class="bookSeller">
-                        John Doe
-                    </td>
-                    <td>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
-                    </td>
-                    <td class="bookTitle">The Book of Everything</td>
-                    <td class="bookAuthor">Charles Barkley</td>
-                    <td class="bookEdition">4th Edition</td>
-                    <td class="bookCourses">
-                        <ul>
-                            <li>CECS 100</li>
-                            <li>CECS 174</li>
-                            <li>CECS 228</li>
-                            <li>CECS 274</li>
-                        </ul>
-                    </td>
-                    <td class="bookCondition">Fair</td>
-                </tr>
-                <tr id="book_2" class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                <td class="bookSeller">
-                   Sally Barkley 
-                </td>
-                    <td>
-                        <img src="http://www.heritagebooks.com.np/images/product/1469943825a_txt_book_for_enginneee.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
-                    </td>
-                    <td class="bookTitle">Why I Like Potatoes</td>
-                    <td class="bookAuthor">Eduardo Sanchez</td>
-                    <td class="bookEdition">3rd Edition</td>
-                    <td class="bookCourses">
-                        <ul>
-                            <li>CECS 100</li>
-                            <li>CECS 174</li>
-                            <li>CECS 274</li>
-                            <li>CECS 277</li>
-                        </ul>
-                    </td>
-                    <td class="bookCondition">New</td>
-                </tr>
             </table>
         </div><!-- /.container -->
 
