@@ -1,4 +1,4 @@
-SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum), co.Conditions
+SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum) as class, co.Conditions
 FROM Client c
 INNER JOIN Seller s
 ON c.USERID = s.USERID
