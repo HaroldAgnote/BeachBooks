@@ -17,6 +17,22 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
+        <?php
+            $db = mysqli_connect('localhost', 'root', ''SoIf7pZnY0DT, 'beach_books');
+            if (!$db)
+            {
+                echo "Error: Unable to connect to MySQL." . PHP_EOL;
+                echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+                exit;
+            }
+        ?>
+    
+        <?php 
+            $query = "SELECT * FROM Book";
+            $result = mysqli_query($db, $query);
+            ?>        
+
         <div class="container">
             <table class="table table-bordered" id="bookList">
                 <tr>
@@ -28,6 +44,9 @@
                     <th>Used in Course</th>
                     <th>Condition</th>
                 </tr>
+                <?php 
+                ?>
+
                 <tr id="book_1" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                     <td class="bookSeller">
                         John Doe
