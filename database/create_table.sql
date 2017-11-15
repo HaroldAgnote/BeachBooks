@@ -87,3 +87,4 @@ CREATE TABLE Exchange (Exchange varchar(30),
     PRIMARY KEY (RequestID, CopyID),
     FOREIGN KEY (RequestID) REFERENCES Request(RequestID),
     FOREIGN KEY (CopyID) REFERENCES Copy(CopyID));
+
