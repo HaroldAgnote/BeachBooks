@@ -73,30 +73,3 @@ INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001', 'C001')
 INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004', 'C003');
 INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005', 'C006');
 
-SELECT (subjectname || ' '|| subjectnum) from classes;
-
-SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum), co.Conditions
-FROM Client c
-INNER JOIN Seller s
-ON c.USERID = s.USERID
-INNER JOIN copy co
-ON s.SELLERID = co.SELLERID
-INNER JOIN book b
-ON co.BOOKID = b.BOOKID
-INNER JOIN classes cl
-ON cl.CLASSID = b.CLASSID;
-
-SELECT * 
-FROM client c
-INNER JOIN Seller s
-ON c.USERID = s.USERID
-INNER JOIN Copy c
-ON s.SELLERID = c.SELLERID
-INNER JOIN Book b
-ON c.BOOKID = b.BOOKID
-WHERE b.TITLE LIKE '%Title4%'
-OR 
-b.AUTHOR LIKE '%Neil%'
-OR
-c.CLIENTNAME LIKE '%Aimee%'
-
