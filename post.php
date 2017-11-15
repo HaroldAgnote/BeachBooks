@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link href="css/starter-template.css" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <title>BeachBooks - Sign Up</title>
+        <title>BeachBooks - Post</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -17,7 +17,7 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
         <div class="col-md-12">
-            <h1 class="form-signin-heading" style="text-align:center;">NEGOTIATE</h1>
+            <h1 class="form-signin-heading" style="text-align:center;">POST YOUR BOOK</h1>
         </div>
     </body>
 </html>

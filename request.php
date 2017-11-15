@@ -1,3 +1,7 @@
+<!-- Eventually turn this entire page into a dropdown scrollbar on the navbar to see requests
+anywhere without leaving the current page, much like the notification button on the navbar
+on YouTube when you are logged in -->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -17,81 +21,104 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
-        <div class="container">
-            <table class="table table-bordered" id="bookList">
-                <tr>
-                    <th>Cover</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Edition</th>
-                    <th>Used in Course</th>
-                    <th>Condition</th>
-                </tr>
-                <tr class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                    <td>
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
-                        <button type="button" data-toggle="modal" data-target="#myModal">Insert Cover Page Here</button>
-                        </button>
-                    </td>
-                    <td>The Book of Everything</td>
-                    <td>Charles Barkley</td>
-                    <td>4th Edition</td>
-                    <td>
-                        <ul>
-                            <li>CECS 100 </li>
-                            <li>CECS 174 </li>
-                            <li>CECS 228 </li>
-                            <li>CECS 274 </li>
-                        </ul>
-                    </td>
-                    <td>Fair</td>
-                </tr>
-                <tr class="bookEntry" data-toggle="modal" data-target="#bookModal">
-                    <td>
-                        <img src="http://www.heritagebooks.com.np/images/product/1469943825a_txt_book_for_enginneee.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
-                        <button type="button" data-toggle="modal" data-target="#myModal">Insert Cover Page Here</button>
-                        </button>
-                    </td>
-                    <td>The Book of Everything</td>
-                    <td>Charles Barkley</td>
-                    <td>4th Edition</td>
-                    <td>
-                        <ul>
-                            <li>CECS 100 </li>
-                            <li>CECS 174 </li>
-                            <li>CECS 228 </li>
-                            <li>CECS 274 </li>
-                        </ul>
-                    </td>
-                    <td>Fair</td>
-                </tr>
-            </table>
-        </div><!-- /.container -->
-
-        <!-- Modal -->
-        <div class="container">
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4>BeachBooks</h4>
+        <div class="container center-block row">
+            <!-- Implement an alert that shows up in front of the page when the buyer clicks the 'Agree to Appointment' button-->
+            <div class="col-md-6">
+                <h1 class="form-signin-heading" style="text-align:center;">YOUR REQUESTS</h1>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq1">Book A</a>
+                            </h4>
                         </div>
-                        <div class="modal-body">
-                            <ul>
-                                <li>Book Title</li>
-                                <li>Author</li>
-                                <li>Edition</li>
-                                <li>Being sold by: </li>
-                            </ul>
-                            <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Take the Offer</a>
-                                BeachBooks
-                            </div>
+                        <div id="yourReq1" class="panel-collapse collapse">
+                            <div class="panel-body"><h4>Book Info 1</h4></div>
+                        </div>
+                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq2">Book B</a>
+                            </h4>
+                        </div>
+                        <div id="yourReq2" class="panel-collapse collapse">
+                            <div class="panel-body"><h4>Book Info 2</h4></div>
+                        </div>
+                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq3">Book C</a>
+                            </h4>
+                        </div>
+                        <div id="yourReq3" class="panel-collapse collapse">
+                            <div class="panel-body"><h4>Book Info 3</h4></div>
+                        </div>
+                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="col-md-6">
+                <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
+                <div class="panel-group" id="accordion2">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">Book A</a>
+                          </h4>
+                        </div>
+                        <div id="buyerReq1" class="panel-collapse collapse">
+                          <div class="panel-body"><h4>Location Info 1</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq2">Book B</a>
+                            </h4>
+                        </div>
+                        <div id="buyerReq2" class="panel-collapse collapse">
+                          <div class="panel-body"><h4>Location Info 2</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                        </div>
+                    </div>
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq3">Book C</a>
+                            </h4>
+                        </div>
+                        <div id="buyerReq3" class="panel-collapse collapse">
+                            <div class="panel-body"><h4>Location Info 3</h4></div>
+                        </div>
+                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alert for agreeing to an appointment location and date set by a seller -->
+        <div class="container">
+            <div class="alert alert-success fade out" id="approveAppoint">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                  Approval for the location and date of the appointment has been sent to the buyer.
             </div>
         </div>
 

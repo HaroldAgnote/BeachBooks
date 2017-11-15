@@ -26,33 +26,10 @@
                 <a class="btn btn-success" role="button">Sign In</a>
           <!-- TODO: Link to Sign Up Page -->
                 <a href="signup.php" class="btn btn-success" role="button">Sign Up</a>
-                <button type="button" class="btn btn-warning"><!--Seller Modal - figure out how to implement it-->
+                <a href="request.php" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
                     <span class="glyphicon glyphicon-envelope"></span>
-                    <span class="badge" id="badge-spacing">0</span>
+                    <span class="badge" id="badge-spacing">0</span></a>
             </form>
         </div><!--/.nav-collapse -->
     </div>
-
-    <div class="container">
-        <div class="modal fade" id="sellerModal" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4>Your Requests</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-footer">
-                            <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Set Appointment</a>
-                            <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Negotiate Price</a>
-                            <a class="btn btn-lg btn-danger btn-block" role="button" href="appointment.php">Decline Request</a>
-                              BeachBooks
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 </nav>
