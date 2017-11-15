@@ -29,7 +29,16 @@
         ?>
     
         <?php 
-            $query = "SELECT * FROM Book";
+            $query = " SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum) as class, co.Conditions
+                FROM Client c
+                INNER JOIN Seller s
+                ON c.USERID = s.USERID
+                INNER JOIN Copy co
+                ON s.SELLERID = co.SELLERID
+                INNER JOIN Book b
+                ON co.BOOKID = b.BOOKID
+                INNER JOIN Classes cl
+                ON cl.CLASSID = b.CLASSID; "
             $result = mysqli_query($db, $query);
             ?>        
 
@@ -45,6 +54,33 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
+                    $counter=1;
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $seller = $result["c.clientName"];
+                        $title = $result["b.Title"];
+                        $author = $result["b.Author"];
+                        $edition = $result["b.Edition"];
+                        $class = $result["class"];
+                        $condition = $result["co.Conditions"];
+                        $counter = $counter + 1;
+                ?>
+                        <tr id=<?php echo $counter; ?> class="bookEntry" data-toggle="modal" data-target="#bookModal">
+                            <td class="bookSeller">
+                                <?php echo $seller; ?>
+                            </td>
+                            <td>
+                                <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
+                            </td>
+                            <td class="bookTitle"><?php echo $title; ?></td>
+                            <td class="bookAuthor"><?php echo $author ?></td>
+                            <td class="bookEdition"><?php echo $condition ?></td>
+                            <td class="bookCourses"> <?php echo $class; ?></td>
+                            <td class="bookCondition"><?php echo $condition ?></td>
+                        </tr>
+                    
+                <?php
+
+                    }
                 ?>
 
                 <tr id="book_1" class="bookEntry" data-toggle="modal" data-target="#bookModal">
