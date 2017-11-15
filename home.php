@@ -43,7 +43,7 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
-		    $query = " SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum) as class, co.Conditions
+		    $query = " SELECT clientName, Title, Author, Edition, (subjectname || ' '|| subjectnum) as class, Conditions
 			FROM Client c
 			INNER JOIN Seller s
 			ON c.USERID = s.USERID
@@ -53,6 +53,7 @@
 			ON co.BOOKID = b.BOOKID
 			INNER JOIN Classes cl
 			ON cl.CLASSID = b.CLASSID; ";
+
 		    $result = mysqli_query($db, $query);
 		    echo $result;
                     $counter=1;
