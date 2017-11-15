@@ -43,27 +43,26 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
-		    $query = " SELECT clientName, Title, Author, Edition, (subjectname || ' '|| subjectnum) as class, Conditions
-			FROM Client c
-			INNER JOIN Seller s
-			ON c.USERID = s.USERID
-			INNER JOIN Copy co
-			ON s.SELLERID = co.SELLERID
-			INNER JOIN Book b
-			ON co.BOOKID = b.BOOKID
-			INNER JOIN Classes cl
-			ON cl.CLASSID = b.CLASSID; ";
+                    $query = " SELECT clientName, Title, Author, Edition, (subjectname || ' '|| subjectnum) as class, Conditions
+                    FROM Client c
+                    INNER JOIN Seller s
+                    ON c.USERID = s.USERID
+                    INNER JOIN Copy co
+                    ON s.SELLERID = co.SELLERID
+                    INNER JOIN Book b
+                    ON co.BOOKID = b.BOOKID
+                    INNER JOIN Classes cl
+                    ON cl.CLASSID = b.CLASSID; ";
 
-		    $result = mysqli_query($db, $query);
-		    echo $result;
+                    $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $result["c.clientName"];
-                        $title = $result["b.Title"];
-                        $author = $result["b.Author"];
-                        $edition = $result["b.Edition"];
+                        $seller = $result["clientName"];
+                        $title = $result["Title"];
+                        $author = $result["Author"];
+                        $edition = $result["Edition"];
                         $class = $result["class"];
-                        $condition = $result["co.Conditions"];
+                        $condition = $result["Conditions"];
                         $counter = $counter + 1;
                 ?>
                         <tr id=<?php echo $counter; ?> class="bookEntry" data-toggle="modal" data-target="#bookModal">
