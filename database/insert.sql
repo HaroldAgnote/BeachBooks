@@ -41,12 +41,12 @@ INSERT INTO Seller VALUES ('S002', 'U0005'); -- Neil Wong is a seller (just a se
 
 -- Inserting Fake Classes
 -- CLASSES: ClassID, SubjectName, SubjectNum, CourseName
-INSERT INTO Classes VALUES ('C001', 'CECS', 100, 'Crit Think in Digital Age');
-INSERT INTO Classes VALUES ('C002', 'CECS', 105, 'Intro to CECS');
-INSERT INTO Classes VALUES ('C003', 'CECS', 110, 'Beg Web Design');
-INSERT INTO Classes VALUES ('C004', 'CECS', 174, 'Intro Prog & Problem Solv');
-INSERT INTO Classes VALUES ('C005', 'CECS', 200, 'Int Web Design');
-INSERT INTO Classes VALUES ('C006', 'CECS', 201, 'Comp Logic Design I');
+INSERT INTO Classes VALUES ('C001', 'CECS', '100', 'Crit Think in Digital Age');
+INSERT INTO Classes VALUES ('C002', 'CECS', '105', 'Intro to CECS');
+INSERT INTO Classes VALUES ('C003', 'CECS', '110', 'Beg Web Design');
+INSERT INTO Classes VALUES ('C004', 'CECS', '174', 'Intro Prog & Problem Solv');
+INSERT INTO Classes VALUES ('C005', 'CECS', '200', 'Int Web Design');
+INSERT INTO Classes VALUES ('C006', 'CECS', '201', 'Comp Logic Design I');
 
 -- Inserting Fake Books
 -- BOOKS: BookID, Title, Author, ISBN, Edition, Publisher, PublishDate, MSRP, ClassID
@@ -58,17 +58,8 @@ INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2', 'Publis
 
 -- Inserting Copy Books
 -- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID, ClassID
-INSERT INTO Copy VALUES ('Good',      10.00,  'CY001', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004', 'C003');
-INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005', 'C006');
-
-SELECT * FROM Users;
-SELECT * FROM SystemAdmin;
-SELECT * FROM Client;
-SELECT * FROM Buyer;
-SELECT * FROM Seller;
-SELECT * FROM Book;
-SELECT * FROM Classes;
-SELECT * FROM Copy;
+INSERT INTO Copy VALUES ('Good',      10.00, 'https://images.tandf.co.uk/common/jackets/amazon/978084932/9780849326912.jpg', 'CY001', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Bad',       25.00, 'http://www.cl.cam.ac.uk/~rja14/Papers/book2coverlarge.jpg', 'CY002', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'http://win.ua.ac.be/~sdemey/imagesPriv/swEvolBookCover.jpg', 'CY003', 'S002', 'BK0004', 'C003');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'http://www.freetechbooks.com/uploads/1482396498-61EzGYVPF9L._SX379_BO1,204,203,200_.jpg', 'CY004', 'S002', 'BK0005', 'C006');
 

@@ -17,6 +17,20 @@
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
+        <?php
+            $db = mysqli_connect('localhost', 'root', 'SoIf7pZnY0DT', 'beach_books');
+            if (!$db)
+            {
+                echo "Error: Unable to connect to MySQL." . PHP_EOL;
+                echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+                exit;
+            }
+        ?>
+    
+        <?php 
+            ?>        
+
         <div class="container">
             <table class="table table-bordered" id="bookList">
                 <tr>
@@ -28,6 +42,53 @@
                     <th>Used in Course</th>
                     <th>Condition</th>
                 </tr>
+                <?php 
+                    $query = " SELECT clientName, Title, Author, Edition, (subjectname || ' '|| subjectnum) as class, Conditions
+                    FROM Client c
+                    INNER JOIN Seller s
+                    ON c.USERID = s.USERID
+                    INNER JOIN Copy co
+                    ON s.SELLERID = co.SELLERID
+                    INNER JOIN Book b
+                    ON co.BOOKID = b.BOOKID
+                    INNER JOIN Classes cl
+                    ON cl.CLASSID = b.CLASSID; ";
+
+                    $result = mysqli_query($db, $query);
+                    if($results->num_rows === 0) {
+                        echo 'No results';
+                    } else {
+                        echo 'Results';
+                    }
+                    $counter=1;
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $seller = $row['clientName'];
+                        $title = $row['Title'];
+                        $author = $row['Author'];
+                        $edition = $row['Edition'];
+                        $class = $row['class'];
+                        $condition = $row['Conditions'];
+                        $counter = $counter + 1;
+                ?>
+                        <tr id=<?php echo $counter; ?> class="bookEntry" data-toggle="modal" data-target="#bookModal">
+                            <td class="bookSeller">
+                                <?php echo $seller; ?>
+                            </td>
+                            <td>
+                                <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
+                            </td>
+                            <td class="bookTitle"><?php echo $title; ?></td>
+                            <td class="bookAuthor"><?php echo $author ?></td>
+                            <td class="bookEdition"><?php echo $condition ?></td>
+                            <td class="bookCourses"> <?php echo $class; ?></td>
+                            <td class="bookCondition"><?php echo $condition ?></td>
+                        </tr>
+                    
+                <?php
+
+                    }
+                ?>
+
                 <tr id="book_1" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                     <td class="bookSeller">
                         John Doe
