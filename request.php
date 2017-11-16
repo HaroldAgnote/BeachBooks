@@ -36,7 +36,7 @@ on YouTube when you are logged in -->
                             <div class="panel-body"><h4>Book Info 1</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
+                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -49,7 +49,7 @@ on YouTube when you are logged in -->
                             <div class="panel-body"><h4>Book Info 2</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
+                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
                         </div>
                     </div>
                     <div class="panel panel-primary">
@@ -62,7 +62,7 @@ on YouTube when you are logged in -->
                             <div class="panel-body"><h4>Book Info 3</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Agree to Appointment</a>
+                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
                         </div>
                     </div>
                 </div>

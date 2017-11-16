@@ -45,16 +45,15 @@
                 <?php 
 
                     if (empty($_GET)) {
-                        $query = " SELECT clientName, Title, Author, Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS course, Conditions
-                            FROM Client c
+                        $query = " SELECT c.ClientName, co.BookCover, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions FROM Client c
                             INNER JOIN Seller s
-                            ON c.USERID = s.USERID
+                            ON c.UserID = s.UserID
                             INNER JOIN Copy co
-                            ON s.SELLERID = co.SELLERID
+                            ON s.SellerID = co.SellerID
                             INNER JOIN Book b
-                            ON co.BOOKID = b.BOOKID
+                            ON co.BookID = b.BookID
                             INNER JOIN Classes cl
-                            ON cl.CLASSID = b.CLASSID;" ;
+                            ON cl.ClassID = b.ClassID; " ;
                     } else {
                         $input = $_GET["search_query"];
                     }
@@ -62,11 +61,12 @@
                     $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $row['clientName'];
+                        $seller = $row['ClientName'];
+                        $cover = $row['BookCover'];
                         $title = $row['Title'];
                         $author = $row['Author'];
                         $edition = $row['Edition'];
-                        $class = $row['course'];
+                        $class = $row['ClassNameNum'];
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
@@ -88,7 +88,6 @@
 
                     }
                 ?>
-
             </table>
         </div><!-- /.container -->
 
@@ -110,7 +109,7 @@
                                 <li id="bookModalSeller"></li>
                             </ul>
                             <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Take the Offer</a>
+                              <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
                                 BeachBooks
                             </div>
                         </div>

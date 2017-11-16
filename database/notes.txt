@@ -27,3 +27,13 @@ OR
 b.AUTHOR LIKE '%Neil%'
 OR
 c.CLIENTNAME LIKE '%Aimee%';
+
+
+--This is to get the name of the user as well as the user 
+--ID when given the client email and password
+SELECT c.ClientName, u.UserID
+FROM Client c
+INNER JOIN Users u
+ON c.USERID = u.USERID
+WHERE ClientEmail = 'Gomez@hotmail.com' AND
+password = 'test2';

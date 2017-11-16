@@ -58,8 +58,8 @@ INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2', 'Publis
 
 -- Inserting Copy Books
 -- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID, ClassID
-INSERT INTO Copy VALUES ('Good',      10.00, 'random_link', 'CY001', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Bad',       25.00, 'random_link', 'CY002', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY003', 'S002', 'BK0004', 'C003');
-INSERT INTO Copy VALUES ('Excellent', 100.00,'random_link', 'CY004', 'S002', 'BK0005', 'C006');
+INSERT INTO Copy VALUES ('Good',      10.00, 'https://images.tandf.co.uk/common/jackets/amazon/978084932/9780849326912.jpg', 'CY001', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Bad',       25.00, 'http://www.cl.cam.ac.uk/~rja14/Papers/book2coverlarge.jpg', 'CY002', 'S001', 'BK0001', 'C001');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'http://win.ua.ac.be/~sdemey/imagesPriv/swEvolBookCover.jpg', 'CY003', 'S002', 'BK0004', 'C003');
+INSERT INTO Copy VALUES ('Excellent', 100.00,'http://www.freetechbooks.com/uploads/1482396498-61EzGYVPF9L._SX379_BO1,204,203,200_.jpg', 'CY004', 'S002', 'BK0005', 'C006');
 
