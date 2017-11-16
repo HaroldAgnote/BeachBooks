@@ -43,7 +43,7 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
-                    $query = " SELECT c.clientName, b.Title, b.Author, b.Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS Class, co.Conditions
+                    $query = " SELECT clientName, Title, Author, Edition,(COALESCE(subjectname, '') || COALESCE(subjectnum, '')) AS course, Conditions
                         FROM Client c
                         INNER JOIN Seller s
                         ON c.USERID = s.USERID
@@ -57,12 +57,12 @@
                     $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $row['c.clientName'];
-                        $title = $row['b.Title'];
-                        $author = $row['b.Author'];
-                        $edition = $row['b.Edition'];
-                        $class = $row['Class'];
-                        $condition = $row['co.Conditions'];
+                        $seller = $row['clientName'];
+                        $title = $row['Title'];
+                        $author = $row['Author'];
+                        $edition = $row['Edition'];
+                        $class = $row['course'];
+                        $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
                     <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
