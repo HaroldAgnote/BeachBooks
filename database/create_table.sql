@@ -1,13 +1,13 @@
-DROP TABLE Exchange IF EXISTS Exchange;
-DROP TABLE Copy IF EXISTS Copy;
-DROP TABLE Seller IF EXISTS Seller;
-DROP TABLE Request IF EXISTS Request;
-DROP TABLE Buyer IF EXISTS Buyer;
-DROP TABLE Book IF EXISTS Book;
-DROP TABLE SystemAdmin IF EXISTS SystemAdmin;
-DROP TABLE Client IF EXISTS Client;
-DROP TABLE Classes IF EXISTS Classes;
-DROP TABLE Users IF EXISTS Users;
+DROP TABLE Exchange IF EXISTS 'Exchange';
+DROP TABLE Copy IF EXISTS 'Copy';
+DROP TABLE Seller IF EXISTS 'Seller';
+DROP TABLE Request IF EXISTS 'Request';
+DROP TABLE Buyer IF EXISTS 'Buyer';
+DROP TABLE Book IF EXISTS 'Book';
+DROP TABLE SystemAdmin IF EXISTS 'SystemAdmin';
+DROP TABLE Client IF EXISTS 'Client';
+DROP TABLE Classes IF EXISTS 'Classes';
+DROP TABLE Users IF EXISTS 'Users';
 
 -- Create the table for Users
 CREATE TABLE Users (UserID varchar(30) NOT NULL,
