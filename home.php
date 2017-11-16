@@ -43,16 +43,16 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
-                    $query = " SELECT clientName, Title, Author, Edition, (subjectname || ' '|| subjectnum) as class, Conditions
-                    FROM Client c
-                    INNER JOIN Seller s
-                    ON c.USERID = s.USERID
-                    INNER JOIN Copy co
-                    ON s.SELLERID = co.SELLERID
-                    INNER JOIN Book b
-                    ON co.BOOKID = b.BOOKID
-                    INNER JOIN Classes cl
-                    ON cl.CLASSID = b.CLASSID; ";
+                    $query = " SELECT clientName, Title, Author, Edition,(COALESCE(subjectname, '') || COALESCE(.subjectnum, '')) AS Class, Conditions
+                        FROM Client c
+                        INNER JOIN Seller s
+                        ON c.USERID = s.USERID
+                        INNER JOIN copy co
+                        ON s.SELLERID = co.SELLERID
+                        INNER JOIN book b
+                        ON co.BOOKID = b.BOOKID
+                        INNER JOIN classes cl
+                        ON cl.CLASSID = b.CLASSID;" ;
 
                     $result = mysqli_query($db, $query);
                     $counter=1;
@@ -61,7 +61,7 @@
                         $title = $row['Title'];
                         $author = $row['Author'];
                         $edition = $row['Edition'];
-                        $class = $row['class'];
+                        $class = $row['Class'];
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
@@ -74,9 +74,9 @@
                         </td>
                         <td class="bookTitle"><?php echo $title; ?></td>
                         <td class="bookAuthor"><?php echo $author ?></td>
-                        <td class="bookEdition"><?php echo $edition?></td>
+                        <td class="bookEdition"><?php echo $edition;?></td>
                         <td class="bookCourses"> <?php echo $class; ?></td>
-                        <td class="bookCondition"><?php echo $condition ?></td>
+                        <td class="bookCondition"><?php echo $condition; ?></td>
                     </tr>
                     
                 <?php
