@@ -61,7 +61,7 @@
                     $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $row['clientName'];
+                        $seller = $row['ClientName'];
                         $cover = $row['BookCover'];
                         $title = $row['Title'];
                         $author = $row['Author'];
