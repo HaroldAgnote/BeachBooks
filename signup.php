@@ -66,7 +66,7 @@
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                           <h4>Terms of Service</h4>
                       </div>
-                      <div class="modal-body">
+                      <div class="modal-body" style="height:550px; overflow-x: hidden; overflow-y:scroll; padding-right:50px">
                         <p style="overflow:auto; font-size:20px; text-align:justify;"><br>
                           <ol type="1" style="text-align:justify;">
                               <li><b>Contractual Relationship</b><br>
