@@ -89,7 +89,6 @@
 
                     }
                 ?>
-
             </table>
         </div><!-- /.container -->
 
@@ -111,7 +110,7 @@
                                 <li id="bookModalSeller"></li>
                             </ul>
                             <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Take the Offer</a>
+                              <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
                                 BeachBooks
                             </div>
                         </div>
