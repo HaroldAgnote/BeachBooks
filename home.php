@@ -43,7 +43,7 @@
                     <th>Condition</th>
                 </tr>
                 <?php 
-                    $query = " SELECT clientName, Title, Author, Edition,(COALESCE(subjectname, '') || COALESCE(subjectnum, '')) AS course, Conditions
+                    $query = " SELECT clientName, Title, Author, Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS course, Conditions
                         FROM Client c
                         INNER JOIN Seller s
                         ON c.USERID = s.USERID
