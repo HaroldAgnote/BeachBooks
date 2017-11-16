@@ -45,16 +45,17 @@
                 <?php 
 
                     if (empty($_GET)) {
-                        $query = " SELECT clientName, Title, Author, Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS course, Conditions
+                        $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition,(COALESCE(cl.SubjectName, '') || COALESCE(cl.SubjectNum, '')) AS Course,
+                             co.Conditions
                             FROM Client c
                             INNER JOIN Seller s
-                            ON c.USERID = s.USERID
+                            ON c.UserID = s.UserID
                             INNER JOIN Copy co
-                            ON s.SELLERID = co.SELLERID
+                            ON s.SellerID = co.SellerID
                             INNER JOIN Book b
-                            ON co.BOOKID = b.BOOKID
+                            ON co.BookID = b.BookID
                             INNER JOIN Classes cl
-                            ON cl.CLASSID = b.CLASSID;" ;
+                            ON cl.ClassID = b.ClassID;" ;
                     } else {
                         $input = $_GET["search_query"];
                     }
@@ -62,12 +63,12 @@
                     $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $row['clientName'];
-                        $title = $row['Title'];
-                        $author = $row['Author'];
-                        $edition = $row['Edition'];
-                        $class = $row['course'];
-                        $condition = $row['Conditions'];
+                        $seller = $row['c.clientName'];
+                        $title = $row['b.Title'];
+                        $author = $row['b.Author'];
+                        $edition = $row['b.Edition'];
+                        $class = $row['Class'];
+                        $condition = $row['co.Conditions'];
                         $counter = $counter + 1;
                 ?>
                     <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
