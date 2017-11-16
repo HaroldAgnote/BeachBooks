@@ -1,5 +1,7 @@
 SELECT (subjectname || ' '|| subjectnum) from classes;
 
+-- To display the book copies from database
+--OUTPUT: Name of sellet, title, author, edition, course name + num, condition of book
 SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions
 FROM Client c
 INNER JOIN Seller s
@@ -10,6 +12,7 @@ INNER JOIN Book b
 ON co.BookID = b.BookID
 INNER JOIN Classes cl
 ON cl.ClassID = b.ClassID;
+
 
 SELECT * 
 FROM client c
@@ -24,4 +27,3 @@ OR
 b.AUTHOR LIKE '%Neil%'
 OR
 c.CLIENTNAME LIKE '%Aimee%';
-
