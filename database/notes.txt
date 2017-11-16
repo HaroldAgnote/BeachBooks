@@ -23,5 +23,5 @@ WHERE b.TITLE LIKE '%Title4%'
 OR 
 b.AUTHOR LIKE '%Neil%'
 OR
-c.CLIENTNAME LIKE '%Aimee%'
+c.CLIENTNAME LIKE '%Aimee%';
 

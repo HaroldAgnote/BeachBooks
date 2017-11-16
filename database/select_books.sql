@@ -1,4 +1,5 @@
-SELECT clientName, Title, Author, Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS course, Conditions
+SELECT c.ClientName, b.Title, b.Author, b.Edition,(COALESCE(cl.subjectname, '') || COALESCE(cl.subjectnum, '')) AS Classs,
+ co.Conditions
 FROM Client c
 INNER JOIN Seller s
 ON c.USERID = s.USERID
