@@ -9,9 +9,10 @@
             </button>
             <a class="navbar-brand" href="home.php">BeachBooks</a>
         </div>
-        <form class="navbar-form navbar-left">
+        <form action="home.php" method="GET" class="navbar-form navbar-left">
             <div class="form-group">
-                <input id="input-style" class="form-control" type="text" placeholder="Search Database" class="form-control circular">
+                <input name="search_query" id="input-style" class="form-control" type="text" placeholder="Search Database" class="form-control circular">
+                <input type="Submit" class="form-control" value="Search">
             </div>
         </form>
         <div id="navbar" class="navbar-collapse collapse">
