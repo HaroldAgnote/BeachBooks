@@ -1,5 +1,5 @@
 SELECT * 
-FROM client c
+FROM client cl
 INNER JOIN Seller s
 ON c.USERID = s.USERID
 INNER JOIN Copy c
