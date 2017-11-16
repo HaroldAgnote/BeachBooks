@@ -45,7 +45,7 @@
                 <?php 
 
                     if (empty($_GET)) {
-                        $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions FROM Client c
+                        $query = " SELECT c.ClientName, b.BookCover, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions FROM Client c
                             INNER JOIN Seller s
                             ON c.UserID = s.UserID
                             INNER JOIN Copy co
@@ -62,6 +62,7 @@
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
                         $seller = $row['clientName'];
+                        $book_link = $row['b.BookCover']
                         $title = $row['Title'];
                         $author = $row['Author'];
                         $edition = $row['Edition'];
@@ -74,7 +75,7 @@
                             <?php echo $seller; ?>
                         </td>
                         <td>
-                            <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
+                        <img src="<?php echo $book_link; ?>" alt="CECS Textbook"></img>
                         </td>
                         <td class="bookTitle"><?php echo $title; ?></td>
                         <td class="bookAuthor"><?php echo $author ?></td>
