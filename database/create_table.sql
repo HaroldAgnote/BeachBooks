@@ -50,8 +50,9 @@ CREATE TABLE Request (RequestStatus boolean,
 
 -- Create the table for Classes
 CREATE TABLE Classes (ClassID varchar (30),
-    SubjectName varchar (30),
-    SubjectNum varchar (30),
+    ClassNameNum varch (30),
+	--SubjectName varchar (30),
+    --SubjectNum varchar (30),
     CourseName varchar (50),
     PRIMARY KEY (ClassID));
 

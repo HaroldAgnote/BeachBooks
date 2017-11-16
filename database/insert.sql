@@ -41,12 +41,12 @@ INSERT INTO Seller VALUES ('S002', 'U0005'); -- Neil Wong is a seller (just a se
 
 -- Inserting Fake Classes
 -- CLASSES: ClassID, SubjectName, SubjectNum, CourseName
-INSERT INTO Classes VALUES ('C001', 'CECS', '100', 'Crit Think in Digital Age');
-INSERT INTO Classes VALUES ('C002', 'CECS', '105', 'Intro to CECS');
-INSERT INTO Classes VALUES ('C003', 'CECS', '110', 'Beg Web Design');
-INSERT INTO Classes VALUES ('C004', 'CECS', '174', 'Intro Prog & Problem Solv');
-INSERT INTO Classes VALUES ('C005', 'CECS', '200', 'Int Web Design');
-INSERT INTO Classes VALUES ('C006', 'CECS', '201', 'Comp Logic Design I');
+INSERT INTO Classes VALUES ('C001', 'CECS 100', 'Crit Think in Digital Age');
+INSERT INTO Classes VALUES ('C002', 'CECS 105', 'Intro to CECS');
+INSERT INTO Classes VALUES ('C003', 'CECS 110', 'Beg Web Design');
+INSERT INTO Classes VALUES ('C004', 'CECS 174', 'Intro Prog & Problem Solv');
+INSERT INTO Classes VALUES ('C005', 'CECS 200', 'Int Web Design');
+INSERT INTO Classes VALUES ('C006', 'CECS 201', 'Comp Logic Design I');
 
 -- Inserting Fake Books
 -- BOOKS: BookID, Title, Author, ISBN, Edition, Publisher, PublishDate, MSRP, ClassID

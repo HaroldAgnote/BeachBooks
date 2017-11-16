@@ -1,10 +1,9 @@
-SELECT c.clientName, b.Title, b.Author, b.Edition, (cl.subjectname || ' '|| cl.subjectnum) as class, co.Conditions
-FROM Client c
+SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions FROM Client c
 INNER JOIN Seller s
-ON c.USERID = s.USERID
+ON c.UserID = s.UserID
 INNER JOIN Copy co
-ON s.SELLERID = co.SELLERID
+ON s.SellerID = co.SellerID
 INNER JOIN Book b
-ON co.BOOKID = b.BOOKID
+ON co.BookID = b.BookID
 INNER JOIN Classes cl
-ON cl.CLASSID = b.CLASSID;
+ON cl.ClassID = b.ClassID;
