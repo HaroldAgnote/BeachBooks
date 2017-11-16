@@ -70,12 +70,12 @@
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
-                    <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal" width="200px" height="300px">
+                    <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                         <td class="bookSeller">
                             <?php echo $seller; ?>
                         </td>
                         <td>
-                            <img src="<?php echo $cover ?>" alt="CECS Textbook"></img>
+                            <img src="https://images-na.ssl-images-amazon.com/images/I/91CfRJMPqjL._AC_UL320_SR236,320_.jpg" style="width:20%; height:20%" alt="CECS Textbook"></img>
                         </td>
                         <td class="bookTitle"><?php echo $title; ?></td>
                         <td class="bookAuthor"><?php echo $author ?></td>
