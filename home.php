@@ -50,7 +50,7 @@
                 </tr>
                 <tr id="book_2" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                 <td class="bookSeller">
-                   Sally Barkley 
+                   Sally Barkley
                 </td>
                     <td>
                         <img src="http://www.heritagebooks.com.np/images/product/1469943825a_txt_book_for_enginneee.jpg" style="width:20%;height:20%" alt="CECS Textbook"></img>
@@ -89,7 +89,7 @@
                                 <li id="bookModalSeller"></li>
                             </ul>
                             <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button" href="appointment.php">Take the Offer</a>
+                              <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
                                 BeachBooks
                             </div>
                         </div>
