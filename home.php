@@ -70,7 +70,7 @@
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
-                    <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
+                    <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal" width="200px" height="300px">
                         <td class="bookSeller">
                             <?php echo $seller; ?>
                         </td>
