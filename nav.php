@@ -11,7 +11,7 @@
         </div>
         <form action="home.php" method="GET" class="navbar-form navbar-left">
             <div class="form-group">
-                <input id="input-style" class="form-control" type="text" placeholder="Search Database" class="form-control circular">
+                <input name="search_query" id="input-style" class="form-control" type="text" placeholder="Search Database" class="form-control circular">
                 <input type="Submit" class="form-control" value="Search">
             </div>
         </form>

@@ -74,7 +74,7 @@
                         </td>
                         <td class="bookTitle"><?php echo $title; ?></td>
                         <td class="bookAuthor"><?php echo $author ?></td>
-                        <td class="bookEdition"><?php echo $condition ?></td>
+                        <td class="bookEdition"><?php echo $edition?></td>
                         <td class="bookCourses"> <?php echo $class; ?></td>
                         <td class="bookCondition"><?php echo $condition ?></td>
                     </tr>
