@@ -63,12 +63,12 @@
                     $result = mysqli_query($db, $query);
                     $counter=1;
                     while($row = mysqli_fetch_assoc($result)) {
-                        $seller = $row['c.clientName'];
-                        $title = $row['b.Title'];
-                        $author = $row['b.Author'];
-                        $edition = $row['b.Edition'];
-                        $class = $row['Class'];
-                        $condition = $row['co.Conditions'];
+                        $seller = $row['clientName'];
+                        $title = $row['Title'];
+                        $author = $row['Author'];
+                        $edition = $row['Edition'];
+                        $class = $row['Course'];
+                        $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
                     <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
