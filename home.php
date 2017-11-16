@@ -65,7 +65,7 @@
                         $title = $row['Title'];
                         $author = $row['Author'];
                         $edition = $row['Edition'];
-                        $class = $row['Course'];
+                        $class = $row['ClassNameNum'];
                         $condition = $row['Conditions'];
                         $counter = $counter + 1;
                 ?>
