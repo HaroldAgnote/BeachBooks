@@ -45,9 +45,7 @@
                 <?php 
 
                     if (empty($_GET)) {
-                        $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition,(COALESCE(cl.SubjectName, '') || COALESCE(cl.SubjectNum, '')) AS Course,
-                             co.Conditions
-                            FROM Client c
+                        $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions FROM Client c
                             INNER JOIN Seller s
                             ON c.UserID = s.UserID
                             INNER JOIN Copy co
@@ -55,7 +53,7 @@
                             INNER JOIN Book b
                             ON co.BookID = b.BookID
                             INNER JOIN Classes cl
-                            ON cl.ClassID = b.ClassID;" ;
+                            ON cl.ClassID = b.ClassID; " ;
                     } else {
                         $input = $_GET["search_query"];
                     }
