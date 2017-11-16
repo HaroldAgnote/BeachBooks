@@ -1,5 +1,6 @@
 SELECT (subjectname || ' '|| subjectnum) from classes;
 
+-- Test
 SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions
 FROM Client c
 INNER JOIN Seller s
