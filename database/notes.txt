@@ -37,3 +37,16 @@ INNER JOIN Users u
 ON c.USERID = u.USERID
 WHERE ClientEmail = 'Gomez@hotmail.com' AND
 password = 'test2';
+
+SELECT c.ClientName, co.BookCover, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions, co.SellingPrice
+FROM Client c
+INNER JOIN Seller s
+ON c.UserID = s.UserID
+INNER JOIN Copy co
+ON s.SellerID = co.SellerID
+INNER JOIN Book b
+ON co.BookID = b.BookID
+INNER JOIN Classes cl
+ON cl.ClassID = b.ClassID;
+
+
