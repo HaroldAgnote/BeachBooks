@@ -1,8 +1,10 @@
-SELECT (subjectname || ' '|| subjectnum) from classes;
+--NEEDED:
+-Query to display clientname, title, author, edition, classnamenum, conditions, and book cover
+-Query to search data base for certain name / keyword
 
 -- To display the book copies from database
---OUTPUT: Name of sellet, title, author, edition, course name + num, condition of book
-SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions
+--OUTPUT: Name of seller, title, author, edition, course name + num, condition of book, BookCover
+SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL
 FROM Client c
 INNER JOIN Seller s
 ON c.UserID = s.UserID
@@ -11,7 +13,9 @@ ON s.SellerID = co.SellerID
 INNER JOIN Book b
 ON co.BookID = b.BookID
 INNER JOIN Classes cl
-ON cl.ClassID = b.ClassID;
+ON cl.BookID = b.BookID
+INNER JOIN BookCover bc
+ON co.COPYID = bc.COPYID;
 
 
 SELECT * 
@@ -38,6 +42,7 @@ ON c.USERID = u.USERID
 WHERE ClientEmail = 'Gomez@hotmail.com' AND
 password = 'test2';
 
+--(Not sure what the below is for)
 SELECT c.ClientName, co.BookCover, b.Title, b.Author, b.Edition, cl.ClassNameNum, co.Conditions, co.SellingPrice
 FROM Client c
 INNER JOIN Seller s
