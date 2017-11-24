@@ -39,27 +39,33 @@ INSERT INTO Buyer VALUES ('B002', 'U000A'); -- John Rochin is a buyer (just a bu
 INSERT INTO Seller VALUES ('S001', 'U0001'); -- Aimee Threlkeld is a seller (both)
 INSERT INTO Seller VALUES ('S002', 'U0005'); -- Neil Wong is a seller (just a seller)
 
--- Inserting Fake Classes
--- CLASSES: ClassID, SubjectName, SubjectNum, CourseName
-INSERT INTO Classes VALUES ('C001', 'CECS 100', 'Crit Think in Digital Age');
-INSERT INTO Classes VALUES ('C002', 'CECS 105', 'Intro to CECS');
-INSERT INTO Classes VALUES ('C003', 'CECS 110', 'Beg Web Design');
-INSERT INTO Classes VALUES ('C004', 'CECS 174', 'Intro Prog & Problem Solv');
-INSERT INTO Classes VALUES ('C005', 'CECS 200', 'Int Web Design');
-INSERT INTO Classes VALUES ('C006', 'CECS 201', 'Comp Logic Design I');
-
 -- Inserting Fake Books
--- BOOKS: BookID, Title, Author, ISBN, Edition, Publisher, PublishDate, MSRP, ClassID
-INSERT INTO Book VALUES ('BK0001', 'Title1', 'Neil Terrel',    100, '1', 'Publisher1', '2010-12-11', 20.00, 'C001');
-INSERT INTO Book VALUES ('BK0002', 'Title2', 'Johua Hayter',   101, '1', 'Publisher2', '2012-11-31', 50.00, 'C001');
-INSERT INTO Book VALUES ('BK0003', 'Title3', 'Eric Hernandez', 102, '2', 'Publisher1', '2012-01-11', 50.00, 'C002');
-INSERT INTO Book VALUES ('BK0004', 'Title4', 'Tom Johnson',    103, '3', 'Publisher3', '2010-03-21', 50.00, 'C003');
-INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2', 'Publisher4', '1990-01-11', 25.00, 'C006');
+-- BOOKS: BookID, Title, Author, ISBN, Edition, Publisher, PublishDate, MSRP
+INSERT INTO Book VALUES ('BK0001', 'Title1', 'Neil Terrel',    100, '1st', 'Publisher1', '2010-12-11', 20.00);
+INSERT INTO Book VALUES ('BK0002', 'Title2', 'Johua Hayter',   101, '1st', 'Publisher2', '2012-11-31', 50.00);
+INSERT INTO Book VALUES ('BK0003', 'Title3', 'Eric Hernandez', 102, '2nd', 'Publisher1', '2012-01-11', 50.00);
+INSERT INTO Book VALUES ('BK0004', 'Title4', 'Tom Johnson',    103, '3rd', 'Publisher3', '2010-03-21', 50.00);
+INSERT INTO Book VALUES ('BK0005', 'Title5', 'Daniel Cregg',   104, '2nd', 'Publisher4', '1990-01-11', 25.00);
+
+-- Inserting Fake Classes (Repeated Att)
+-- CLASSES: ClassSubjNum, CourseName, BookID
+INSERT INTO Classes VALUES ('CECS 100', 'Crit Think in Digital Age', 'BK0001');
+INSERT INTO Classes VALUES ('CECS 105', 'Intro to CECS', 'BK0002');
+INSERT INTO Classes VALUES ('CECS 174', 'Intro Prog & Problem Solv', 'BK0003');
+INSERT INTO Classes VALUES ('CECS 274', 'Intro Prog & Problem Solv II', 'BK0003' );
+INSERT INTO Classes VALUES ('CECS 200', 'Int Web Design', 'BK0004');
+INSERT INTO Classes VALUES ('CECS 201', 'Comp Logic Design I', 'BK0005');
 
 -- Inserting Copy Books
--- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID, ClassID
-INSERT INTO Copy VALUES ('Good',      10.00, 'https://images.tandf.co.uk/common/jackets/amazon/978084932/9780849326912.jpg', 'CY001', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Bad',       25.00, 'http://www.cl.cam.ac.uk/~rja14/Papers/book2coverlarge.jpg', 'CY002', 'S001', 'BK0001', 'C001');
-INSERT INTO Copy VALUES ('Excellent', 100.00,'http://win.ua.ac.be/~sdemey/imagesPriv/swEvolBookCover.jpg', 'CY003', 'S002', 'BK0004', 'C003');
-INSERT INTO Copy VALUES ('Excellent', 100.00,'http://www.freetechbooks.com/uploads/1482396498-61EzGYVPF9L._SX379_BO1,204,203,200_.jpg', 'CY004', 'S002', 'BK0005', 'C006');
+-- COPY: Conditions, SellingPrice, CopyID, SellerID, BookID
+INSERT INTO Copy VALUES ('Good',      10.00,  'CY001', 'S001', 'BK0001');
+INSERT INTO Copy VALUES ('Bad',       25.00,  'CY002', 'S001', 'BK0001');
+INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY003', 'S002', 'BK0004');
+INSERT INTO Copy VALUES ('Excellent', 100.00, 'CY004', 'S002', 'BK0005');
 
+-- Inserting Fake BookCover (Repeatd Att)
+-- BOOKCOVER: URL, CopyID
+INSERT INTO BookCover Values ('https://images.tandf.co.uk/common/jackets/amazon/978084932/9780849326912.jpg', 'CY001');
+INSERT INTO BookCover Values ('http://www.cl.cam.ac.uk/~rja14/Papers/book2coverlarge.jpg','CY002');
+INSERT INTO BookCover Values ('http://win.ua.ac.be/~sdemey/imagesPriv/swEvolBookCover.jpg','CY003');
+INSERT INTO BookCover Values ('http://www.freetechbooks.com/uploads/1482396498-61EzGYVPF9L._SX379_BO1,204,203,200_.jpg','CY004');
