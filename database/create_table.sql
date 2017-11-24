@@ -41,7 +41,7 @@ CREATE TABLE Seller (SellerID varchar (30),
     PRIMARY KEY (SellerID),
     FOREIGN KEY (UserID) REFERENCES Client(UserID));
 
--- Create the table for Request
+-- Create the table for Request 
 CREATE TABLE Request (RequestStatus boolean,
     RequestID varchar (30),
     BuyerID varchar (30),
@@ -57,14 +57,13 @@ CREATE TABLE Book (BookID varchar (30),
     Publisher varchar (30),
     PublishDate varchar (30),
     MSRP decimal,
-    ClassID varchar (30),
     PRIMARY KEY (BookID));
 
 --Create the table for Classes (repeated att w/in Book)
 CREATE TABLE Classes (ClassSubjNum varchar (30),
     CourseName varchar (30),
     BookID varchar (30),
-    PRIMARY KEY (BookID),
+    PRIMARY KEY (BookID, ClassSubjNum),
     FOREIGN KEY (BookID) REFERENCES Book(BookID));
 
 -- Create the table for Copy
@@ -73,9 +72,8 @@ CREATE TABLE Copy (Conditions varchar (30),
     CopyID  varchar (30),
     SellerID varchar (30),
     BookID varchar (30),
-    ClassID varchar (30),
     PRIMARY KEY (CopyID),
-    FOREIGN KEY (BookID) References Book(BookID),
+    FOREIGN KEY (BookID) REFERENCES Book(BookID),
     FOREIGN KEY (SellerID) REFERENCES Seller(SellerID));
 
 -- Create the table for BookCover (repeated att w/in Copy)
