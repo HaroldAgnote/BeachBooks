@@ -18,13 +18,9 @@
         <?php include('nav.php'); ?>
 
         <?php
-            $db = mysqli_connect('localhost', 'root', 'SoIf7pZnY0DT', 'beach_books');
-            if (!$db)
-            {
-                echo "Error: Unable to connect to MySQL." . PHP_EOL;
-                echo "Debugging error: " . mysqli_connect_errno() . PHP_EOL;
-                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-                exit;
+            $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+            if ($mysqli->connect_errno) {
+                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
             }
         ?>
     
@@ -125,5 +121,6 @@
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/loadBookModal.js"></script>
+        <script src="js/user.js"></script>
     </body>
 </html>
