@@ -91,9 +91,3 @@ input.nav-field{
 #badge-spacing{
     margin: 0 0 5px 0;
 }
-
-#about-format{
-    height:500px;
-    overflow:scroll;
-    text-align:justify;
-}
