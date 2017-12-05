@@ -38,7 +38,7 @@
                 it be simpler just to exchange the books that you don’t need anymore for books you really need this semester? Well BeachBooks allows you to do just
                 that! Just by creating an account with us, you can browse through the selection of hundreds and hundreds of books available online. With just a few
                 clicks away, you can be exchanging your books with trusted students around campus without having to haggle with Third party sites. So what are you
-                waiting for? Go out there and exchanged those books today at <a href="beachbooks.me">BeachBooks.me!</a><br>
+                waiting for? Go out there and exchanged those books today at <a href="index.php">BeachBooks.me!</a><br>
               </p>
           </div>
 

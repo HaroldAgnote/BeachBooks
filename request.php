@@ -27,9 +27,9 @@ on YouTube when you are logged in -->
                 <h1 class="form-signin-heading" style="text-align:center;">YOUR REQUESTS</h1>
                 <div class="panel-group" id="accordion">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq1">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq1">Book A</a>
+                                Book A
                             </h4>
                         </div>
                         <div id="yourReq1" class="panel-collapse collapse">
@@ -40,9 +40,9 @@ on YouTube when you are logged in -->
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq2">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq2">Book B</a>
+                                Book B
                             </h4>
                         </div>
                         <div id="yourReq2" class="panel-collapse collapse">
@@ -53,9 +53,9 @@ on YouTube when you are logged in -->
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq3">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#yourReq3">Book C</a>
+                                Book C
                             </h4>
                         </div>
                         <div id="yourReq3" class="panel-collapse collapse">
@@ -72,10 +72,10 @@ on YouTube when you are logged in -->
                 <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
                 <div class="panel-group" id="accordion2">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                          <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">Book A</a>
-                          </h4>
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">
+                            <h4 class="panel-title">
+                                Book A
+                            </h4>
                         </div>
                         <div id="buyerReq1" class="panel-collapse collapse">
                           <div class="panel-body"><h4>Location Info 1</h4></div>
@@ -85,9 +85,9 @@ on YouTube when you are logged in -->
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq2">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq2">Book B</a>
+                                Book B
                             </h4>
                         </div>
                         <div id="buyerReq2" class="panel-collapse collapse">
@@ -98,9 +98,9 @@ on YouTube when you are logged in -->
                         </div>
                     </div>
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
+                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq3">
                             <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion2" href="#buyerReq3">Book C</a>
+                                Book C
                             </h4>
                         </div>
                         <div id="buyerReq3" class="panel-collapse collapse">
