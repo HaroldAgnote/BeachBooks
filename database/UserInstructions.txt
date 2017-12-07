@@ -1,16 +1,29 @@
 How To Use BeachBooks
 
-1.
+1. Go to beachbooks.me
 
-2.
+2. Click 'Learn more' to enter website
 
-3.
+3. Sign in OR Sign up
+	3a. Sign in
+		- Enter E-mail
+		- Enter Password
+		- Click Sign in
+	3b. Sign up
+		- Enter first name
+		- Enter last name
+		- Enter Email address
+		- Choose Password
+		- Check agree to Terms and Services
+		- Click Sign up
 
-4.
+4. Search for book by entering keyword into search bar located at the top of the screen
+   Press Search
 
-5.
+5. If a seller has a book for sale, the buyer will choose a book
+   They can assess: Seller, Cover, Title, Author, Edition, Used in Course, Condition
 
-6.
+6. Once they choose the book they can 
 
 7.
 
