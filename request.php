@@ -33,7 +33,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="yourReq1" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Book Info 1</h4></div>
+                            <div class="panel-body"><h4>Location Info 1</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
@@ -46,7 +46,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="yourReq2" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Book Info 2</h4></div>
+                            <div class="panel-body"><h4>Location Info 2</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
@@ -59,7 +59,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="yourReq3" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Book Info 3</h4></div>
+                            <div class="panel-body"><h4>Location Info 3</h4></div>
                         </div>
                         <div class="panel-footer">Requesting from: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
@@ -78,7 +78,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="buyerReq1" class="panel-collapse collapse">
-                          <div class="panel-body"><h4>Location Info 1</h4></div>
+                          <div class="panel-body"><h4>Book Info 1</h4></div>
                         </div>
                         <div class="panel-footer">Requested by: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
@@ -91,7 +91,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="buyerReq2" class="panel-collapse collapse">
-                          <div class="panel-body"><h4>Location Info 2</h4></div>
+                          <div class="panel-body"><h4>Book Info 2</h4></div>
                         </div>
                         <div class="panel-footer">Requested by: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
@@ -104,7 +104,7 @@ on YouTube when you are logged in -->
                             </h4>
                         </div>
                         <div id="buyerReq3" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Location Info 3</h4></div>
+                            <div class="panel-body"><h4>Book Info 3</h4></div>
                         </div>
                         <div class="panel-footer">Requested by: <b><i>Username</b></i>
                             <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>

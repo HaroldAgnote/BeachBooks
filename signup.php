@@ -23,10 +23,10 @@
                     <h2 class="form-signin-heading" id="emph">Sign In and Sell!</h2>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
-                    oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
+                    oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
-                    oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
+                    oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
@@ -40,11 +40,9 @@
                 <form class="form-signin">
                     <h2 class="form-signin-heading" id="emph">Create an Account!</h2>
                     <label for="inputFirst" class="sr-only">First Name</label>
-                    <input type="text" id="inputFirst" class="form-control"
-                    placeholder="First Name" required autofocus>
+                    <input type="text" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
                     <label for="inputLast" class="sr-only">Last Name</label>
-                    <input type="text" id="inputLast" class="form-control"
-                    placeholder="Last Name" required autofocus>
+                    <input type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
                     <label for="inputEmail" class="sr-only">Email address</label>
                     <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                     <label for="inputPassword" class="sr-only">Password</label>

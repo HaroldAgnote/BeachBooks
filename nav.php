@@ -17,7 +17,6 @@
         </form>
         <div id="navbar" class="navbar-collapse collapse">
         <!-- TODO: Refresh page whilst signed in -->
-            <h3 id="greeting">Hi</h3>
             <div class="navbar-right">
                 <a class="btn btn-success" role="button" href="signup.php">Sign In</a>
           <!-- TODO: Link to Sign Up Page -->

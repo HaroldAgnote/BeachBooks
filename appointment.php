@@ -23,9 +23,17 @@
                 <h1 class="form-signin-heading" style="text-align:center;">MAKE AN APPOINTMENT</h1>
             </div>
             <br>
+            <!--Google API -->
+            <div class="col-md-6">
+                <form class="form-signin">
+                      <script>
+                      </script>
+                </form>
+            </div>
+
             <div class="col-md-6">
                 <div class="row">
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <form><label>Month</label>
                             <select class="form-control" name="appoint-month">
                                 <option value="jan">January</option>
@@ -42,25 +50,14 @@
                                 <option value="dec">December</option>
                             </select></form>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <form><label>Day</label>
                             <input class="form-control" type="number" name="appoint-day" min="1" max="31" value="1">
                             </input></form>
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-4">
                             <form><label>Time</label>
                             <input class="form-control" type="time" name="appoint_time"></form>
-                        </div>
-                        <div class="col-sm-3">
-                            <form><label>Wait Length</label>
-                            <select class="form-control" name="appoint-wait">
-                                <option value="10min">10 minutes</option>
-                                <option value="15min">15 minutes</option>
-                                <option value="20min">20 minutes</option>
-                                <option value="30min">30 minutes</option>
-                                <option value="45min">45 minutes</option>
-                                <option value="1hour">1 hour</option>
-                            </select></form>
                         </div>
                 </div><br>
                 <form>
@@ -77,15 +74,6 @@
                 <button class="btn btn-lg btn-success btn-block" type="submit">Set the Appointment</button>
                 <button class="btn btn-lg btn-danger btn-block" type="submit">On Second Thought...</button>
             </div>
-
-            <!--Google API -->
-            <div class="col-md-6">
-                <form class="form-signin">
-                      <script>
-                      </script>
-                </form>
-            </div>
-
         </div>
 
         <div class="container">
