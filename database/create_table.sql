@@ -14,8 +14,9 @@ DROP TABLE IF EXISTS `Users`;
 CREATE TABLE Users (
     UserID varchar(30) NOT NULL,
     Password varchar(30) NOT NULL,
+	UserName varchar(50) NOT NULL,
     LoginStatus boolean,
-
+	
     PRIMARY KEY (UserID));
 
 -- Create the table for SystemAdmin
