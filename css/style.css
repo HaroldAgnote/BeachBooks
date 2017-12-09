@@ -98,6 +98,10 @@ ul li:hover{
     font-weight: bold;
 }
 
+div.panel-group div:hover{
+    background-color: #aaaaaa;
+}
+
 #about-format{
     height:500px;
     overflow:scroll;
