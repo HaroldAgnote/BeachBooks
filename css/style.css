@@ -9,8 +9,10 @@
     background-color: #3ebdbd;
 }
 
-#index-effect{
-    background: radial-gradient(circle, #fff 20%, #fcff4f 10%, #c9ffff 60%);
+div.background{
+    background-image: url(https://c2.staticflickr.com/6/5320/5885317790_548e064c29_o.jpg);
+    background-size: auto;
+    background-repeat: no-repeat;
 }
 
 div.boxcol{
@@ -86,6 +88,14 @@ textarea{
 input.nav-field{
     height: 20px;
     border-radius: 0;
+}
+
+div.shadeless{
+    text-shadow: none;
+}
+
+ul li:hover{
+    font-weight: bold;
 }
 
 #about-format{
