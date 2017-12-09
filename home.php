@@ -18,19 +18,12 @@
         <?php include('nav.php'); ?>
 
         <?php
-            $db = mysqli_connect('localhost', 'root', 'SoIf7pZnY0DT', 'beach_books');
-            if (!$db)
-            {
-                echo "Error: Unable to connect to MySQL." . PHP_EOL;
-                echo "Debugging error: " . mysqli_connect_errno() . PHP_EOL;
-                echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-                exit;
+            $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+            if ($db->connect_errno) {
+                echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             }
         ?>
     
-        <?php 
-            ?>        
-
         <div class="container">
             <table class="table table-bordered" id="bookList">
                 <tr>

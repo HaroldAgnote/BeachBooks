@@ -22,9 +22,11 @@
                 <form class="form-signin">
                     <h2 class="form-signin-heading" id="emph">Sign In and Sell!</h2>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+                    oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+                    oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
@@ -48,9 +50,10 @@
                     <label for="inputPassword" class="sr-only">Password</label>
                     <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
                     <div class="checkbox">
-                        <label><input type="checkbox" name="terms" value="agree"> By clicking this you agree to BeachBooks's
-                        <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
-                    <div class="checkbox">
+                        <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
+                          oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
+                          By clicking this you agree to BeachBooks's <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
+                    </div>
                     <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                 </form>
             </div>
@@ -352,6 +355,7 @@
                         </p>
                       </div>
                       <div class="modal-footer">
+                          <button>A</button>
                       </div>
                     </div>
                 </div>
