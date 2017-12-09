@@ -19,14 +19,11 @@
 
         <?php
             $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
-            if ($mysqli->connect_errno) {
-                echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+            if ($db->connect_errno) {
+                echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             }
         ?>
     
-        <?php 
-            ?>        
-
         <div class="container">
             <table class="table table-bordered" id="bookList">
                 <tr>
