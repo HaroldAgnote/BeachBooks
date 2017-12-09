@@ -85,6 +85,19 @@ textarea{
     resize: none;
 }
 
+div.panel-primary{
+    box-shadow: 0 0 6px #494949;
+}
+
+div.panel-primary:default{
+    box-shadow: none;
+    transition: box-shadow 0.75s ease-out 0.75s;
+}
+
+div.panel-heading:hover{
+    background-color: blue;
+}
+
 input.nav-field{
     height: 20px;
     border-radius: 0;
@@ -98,10 +111,6 @@ ul li:hover{
     font-weight: bold;
 }
 
-div.panel-group div:hover{
-    background-color: #aaaaaa;
-}
-
 #about-format{
     height:500px;
     overflow:scroll;
@@ -110,10 +119,4 @@ div.panel-group div:hover{
 
 #badge-spacing{
     margin: 0 0 5px 0;
-}
-
-#about-format{
-    height:500px;
-    overflow:scroll;
-    text-align:justify;
 }

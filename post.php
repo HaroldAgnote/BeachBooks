@@ -57,8 +57,13 @@
                         </div>
                         <div>
                             <form><label>Condition</label>
-                              <input type="text" name="condition" class="form-control" placeholder="Condition" required autofocus
+                              <select class="form-control" name="appoint-month" required autofocus
                               oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
+                                  <option value="exel">Excellent</option>
+                                  <option value="good">Good</option>
+                                  <option value="aver">Average</option>
+                                  <option value="bad">Bad</option>
+                              </select></form>
                             </form>
                         </div>
                         <div>
