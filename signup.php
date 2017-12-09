@@ -15,24 +15,50 @@
     </head>
     <body>
         <!-- Fixed navbar -->
+        <?php
+            $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+            if ($db->connect_errno) {
+                echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
+            }
+            if (empty($_POST["email"])) {
+                 
+            } else {
+                $query = "SELECT ClientName FROM Users
+                        NATURAL JOIN Client
+                        WHERE ClientEmail = ? AND
+                        Password = ?;";
+                if ($stmt = $db->prepare($query)) {
+                    $stmt->bind_param("ss", $email, $password);
+                    $email = $_POST["email"];
+                    $password = $_POST["password"];
+                    $stmt->execute();
+                    $stmt->bind_result($name);
+                    $stmt->fetch();
+                    ?>
+                    <script src="js/user.js">
+                    login(<?php echo $name; ?>);
+                    </script>
+                    <?php 
+                }
+            }
+        ?>
         <?php include('nav.php'); ?>
         <div id="sign-in-up" class="container center-block row">
-
             <div class="col-md-6 boxcol">
-                <form class="form-signin">
+                <form action="signup.php" method="post" class="form-signin">
                     <h2 class="form-signin-heading" id="emph">Sign In and Sell!</h2>
                     <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+                    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
                     oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
                     <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required
+                    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required
                     oninvalid="this.setCustomValidity('You must fill out all field to sign in to your account')" onchange="this.setCustomValidity('')">
                     <div class="checkbox">
                         <label>
                             <input type="checkbox" value="remember-me"> Remember me
                         </label>
                     </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <input id="login_button" class="btn btn-lg btn-primary btn-block" type="submit">
                 </form>
             </div>
 

@@ -12,7 +12,6 @@ else
     console.log("Logged in as " + user);
 }
 
-
 function login(username)
 {
     user = username;
@@ -52,7 +51,12 @@ function greeting() {
     var greeting = document.getElementById('greeting');
     if (name === "Guest") {
         greeting.innerHTML = "Welcome, Guest!";
+        document.getElementById('message_button').style.display = "none";
     } else {
         greeting.innerHTML = "Hello, " + name + "! ";
+        var sign_up_button = document.getElementById('Signup_button')
+        sign_up_button.style.display = "none";
+        document.getElementById('signin_button').style.display = "none";
     }
 }
+greeting();

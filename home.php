@@ -15,14 +15,32 @@
     </head>
     <body>
         <!-- Fixed navbar -->
-        <?php include('nav.php'); ?>
-
         <?php
             $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
             if ($db->connect_errno) {
                 echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             }
+            if (empty($_POST["email"])) {
+            
+            } else {
+                $query = " SELECT ClientName FROM Users
+                        NATURAL JOIN Client
+                        WHERE ClientEmail = ? AND
+                        Password = ?;";
+                if ($stmt = $db->prepare($query)) {
+                    $stmt->bind_param("ss", $email, $password);
+                    $email = $_POST["email"];
+                    $password = $_POST["password"];
+                    $result = $stmt->execute();
+                    while($row = mysqli_fetch_assoc($result)) {
+                        $name = $row['ClientName']; 
+                    }
+
+                }
+            }
         ?>
+        <?php include('nav.php'); ?>
+
     
         <div class="container">
             <table class="table table-bordered" id="bookList">

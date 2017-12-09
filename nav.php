@@ -17,12 +17,12 @@
         </form>
         <div id="navbar" class="navbar-collapse collapse">
         <!-- TODO: Refresh page whilst signed in -->
-            <h3 id="greeting">Hi</h3>
-            <div class="navbar-right">
-                <a class="btn btn-success" role="button" href="signup.php">Sign In</a>
+            <h3 id="greeting" class="navbar-collapse"></h3>
+            <div class="navbar-collapse navbar-right">
+                <a id="signin_button" class="btn btn-success" role="button" href="signup.php">Sign In</a>
           <!-- TODO: Link to Sign Up Page -->
-                <a href="signup.php" class="btn btn-success" role="button">Sign Up</a>
-                <a href="request.php" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
+                <a id="Signup_button"href="signup.php" class="btn btn-success" role="button">Sign Up</a>
+                <a id="message_button" href="request.php" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
                     <span class="glyphicon glyphicon-envelope"></span>
                     <span class="badge" id="badge-spacing">0</span></a>
             </div>
