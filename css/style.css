@@ -30,6 +30,8 @@ div{
 
 a.outset{
     border: 2px outset lightgrey;
+    box-shadow: none;
+    transition: box-shadow 0.5s;
 }
 
 a.outset:visited{
@@ -38,6 +40,8 @@ a.outset:visited{
 
 a.outset:hover{
     border: 2px outset black;
+    box-shadow: 0 0 24px yellow;
+    transition: box-shadow 0.9s;
 }
 
 a.outset:active{
@@ -91,11 +95,11 @@ div.panel-primary{
 
 div.panel-primary:default{
     box-shadow: none;
-    transition: box-shadow 0.75s ease-out 0.75s;
 }
 
 div.panel-heading:hover{
     background-color: blue;
+    transition: background-color 0.25s ease-in-out;
 }
 
 input.nav-field{
@@ -109,6 +113,10 @@ div.shadeless{
 
 ul li:hover{
     font-weight: bold;
+}
+
+form input{
+    margin: 0 0 5px 0;
 }
 
 #about-format{
