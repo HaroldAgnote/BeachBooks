@@ -9,7 +9,9 @@ if (localStorage.getItem("user") == null)
 else
 {
     user = localStorage["user"];
+    console.log("Logged in as " + user);
 }
+
 
 function login(username)
 {
@@ -42,5 +44,15 @@ function assignLogin()
     else
     {
         name.href = '/login' 
+    }
+}
+
+function greeting() {
+    var name = localStorage["user"];
+    var greeting = document.getElementById('greeting');
+    if (name === "Guest") {
+        greeting.innerHTML = "Welcome, Guest!";
+    } else {
+        greeting.innerHTML = "Hello, " + name + "! ";
     }
 }
