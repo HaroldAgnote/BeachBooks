@@ -12,7 +12,7 @@
 <body>
   <div class="site-wrapper">
 
-    <div class="site-wrapper-inner" id="index-effect">
+    <div class="site-wrapper-inner" style="background-image:url(https://c2.staticflickr.com/6/5320/5885317790_548e064c29_o.jpg);background-size:cover;background-repeat:no-repeat;">
 
       <div class="cover-container">
 
@@ -24,19 +24,18 @@
 
         <div class="inner cover">
           <h1 class="cover-heading">Welcome to <strong>BeachBooks</strong></h1>
-          <p class="lead">A website for students to post and exchange their books at reasonable and affordable prices, or even for <strong>free</strong>, amongst themselves.</p>
           <p class="lead">
-            <a href="home.php" class="btn btn-lg btn-default outset">Learn more</a>
+            <a href="home.php" class="btn btn-lg btn-default outset" style="border-radius:25px;">Start searching</a>
           </p>
+          <p class="lead">A website for students to post and exchange their books at reasonable and affordable prices, or even for <strong>free</strong>, amongst themselves.</p>
         </div>
 
         <div class="mastfoot">
               <ul style="display:inline-block;">
-                <li><a href="about.php">About BeachBooks</a></li>
-                <li><a href="privacy.php">Privacy</a></li>
+                <li><a href="about.php" style="color:black;">About BeachBooks</a></li>
+                <li><a href="privacy.php" style="color:black;">Privacy</a></li>
               </ul>
             <!--<p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>-->
-
         </div>
 
       </div>
