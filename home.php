@@ -16,12 +16,12 @@
     </head>
     <body>
         <!-- Fixed navbar -->
-        <?php
-            $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
-            if ($db->connect_errno) {
-                echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
-            }
-        ?>
+<?php
+$db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+if ($db->connect_errno) {
+    echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
+}
+?>
         <?php include('nav.php'); ?>
         <main>
             <div class="container">
@@ -36,68 +36,68 @@
                         <th>Condition</th>
                         <th>Price</th>
                     </tr>
-                    <?php
-                        $stmt;
-                        if (empty($_GET)) {
-                            $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL
-                                    FROM Client c
-                                    INNER JOIN Seller s
-                                    ON c.UserID = s.UserID
-                                    INNER JOIN Copy co
-                                    ON s.SellerID = co.SellerID
-                                    INNER JOIN Book b
-                                    ON co.BookID = b.BookID
-                                    INNER JOIN Classes cl
-                                    ON cl.BookID = b.BookID
-                                    INNER JOIN BookCover bc
-                                    ON co.COPYID = bc.COPYID;
-                                    " ;
-                            if ($stmt = $db->prepare($query)) {
-                                 
-                            }
-                        } else {
-                            $input = "%" . $_GET["search_query"] . "%";
-                            $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL 
-                                FROM Client c
-                                INNER JOIN Seller s
-                                ON c.UserID = s.UserID
-                                INNER JOIN Copy co
-                                ON s.SellerID = co.SellerID
-                                INNER JOIN Book b
-                                ON co.BookId = b.BookId
-                                INNER JOIN Classes cl
-                                ON cl.BookID = b.BookID
-                                INNER JOIN BookCover bc
-                                on co.CopyId = bc.CopyId
-                                WHERE b.title LIKE ?
-                                OR 
-                                b.author LIKE ?
-                                OR
-                                c.ClientName LIKE ?
-                                OR
-                                cl.ClassSubjNum LIKE ?;";
+<?php
+$stmt;
+if (empty($_GET)) {
+    $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL
+        FROM Client c
+        INNER JOIN Seller s
+        ON c.UserID = s.UserID
+        INNER JOIN Copy co
+        ON s.SellerID = co.SellerID
+        INNER JOIN Book b
+        ON co.BookID = b.BookID
+        INNER JOIN Classes cl
+        ON cl.BookID = b.BookID
+        INNER JOIN BookCover bc
+        ON co.COPYID = bc.COPYID;
+    " ;
+    if ($stmt = $db->prepare($query)) {
 
-                           if ($stmt = $db->prepare($query)) {
-                                // $stmt->bind_param('ssss', $title, $author, $client, $class);
-                                $stmt->bind_param('ssss', $input, $input, $input, $input);
-                           } 
-                        }
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-                        $counter=1;
-                        while($row = $result->fetch_assoc()) {
-                            foreach ($row as $r) {
-                                $seller = $row['ClientName'];
-                                $cover = $row['URL'];
-                                $title = $row['Title'];
-                                $author = $row['Author'];
-                                $edition = $row['Edition'];
-                                $class = $row['ClassSubjNum'];
-                                $condition = $row['Conditions'];
-                                $counter = $counter + 1;
-                            
-                            }
-                    ?>
+    }
+} else {
+    $input = "%" . $_GET["search_query"] . "%";
+    $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL 
+        FROM Client c
+        INNER JOIN Seller s
+        ON c.UserID = s.UserID
+        INNER JOIN Copy co
+        ON s.SellerID = co.SellerID
+        INNER JOIN Book b
+        ON co.BookId = b.BookId
+        INNER JOIN Classes cl
+        ON cl.BookID = b.BookID
+        INNER JOIN BookCover bc
+        on co.CopyId = bc.CopyId
+        WHERE b.title LIKE ?
+        OR 
+        b.author LIKE ?
+        OR
+        c.ClientName LIKE ?
+        OR
+        cl.ClassSubjNum LIKE ?;";
+
+    if ($stmt = $db->prepare($query)) {
+        // $stmt->bind_param('ssss', $title, $author, $client, $class);
+        $stmt->bind_param('ssss', $input, $input, $input, $input);
+    } 
+}
+$stmt->execute();
+$result = $stmt->get_result();
+$counter=1;
+while($row = $result->fetch_assoc()) {
+    foreach ($row as $r) {
+        $seller = $row['ClientName'];
+        $cover = $row['URL'];
+        $title = $row['Title'];
+        $author = $row['Author'];
+        $edition = $row['Edition'];
+        $class = $row['ClassSubjNum'];
+        $condition = $row['Conditions'];
+        $counter = $counter + 1;
+
+    }
+?>
                         <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                             <td class="bookSeller">
                                 <?php echo $seller; ?>
@@ -113,10 +113,10 @@
                             <td class="bookPrice"><!-- <?php echo $condition; ?> --></td>
                         </tr>
 
-                    <?php
+<?php
 
-                        }
-                    ?>
+}
+?>
                 </table>
             </div><!-- /.container -->
         </main>
@@ -137,11 +137,11 @@
                               <li id="bookModalAuthor"></li>
                               <li id="bookModalEdition"></li>
                               <li id="bookModalSeller"></li>
+                              <li id="bookModalCover"></li>
                           </ul>
                         </div>
                         <div class="modal-footer">
                           <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
-                            BeachBooks
                         </div>
                     </div>
                 </div>

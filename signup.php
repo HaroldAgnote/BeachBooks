@@ -77,6 +77,7 @@
                         <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <input type="password" id="confirmInputPassword" class="form-control" placeholder="Confirm Password" required>
                         <div class="checkbox">
                             <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
                               oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
@@ -85,6 +86,21 @@
                         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
                     </form>
                 </div>
+                <script>
+                    var password = document.getElementById("inputPassword")
+                      , confirm_password = document.getElementById("confirmInputPassword");
+
+                    function validatePassword(){
+                      if(password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords Don't Match");
+                      } else {
+                        confirm_password.setCustomValidity('');
+                      }
+                    }
+
+                    password.onchange = validatePassword;
+                    confirm_password.onkeyup = validatePassword;
+                </script>
 
             </div> <!-- /container -->
         </main>
