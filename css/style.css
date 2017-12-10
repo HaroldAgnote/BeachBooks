@@ -128,3 +128,6 @@ form input{
 #badge-spacing{
     margin: 0 0 5px 0;
 }
+main {
+    margin-top: 3em;
+}

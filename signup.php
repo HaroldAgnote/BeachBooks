@@ -12,16 +12,18 @@
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
         <!-- Fixed navbar -->
+        <?php include('nav.php'); ?>
         <?php
             $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
             if ($db->connect_errno) {
                 echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             }
             if (empty($_POST["email"])) {
-                 
             } else {
                 $query = "SELECT ClientName FROM Users
                         NATURAL JOIN Client
@@ -34,55 +36,58 @@
                     $stmt->execute();
                     $stmt->bind_result($name);
                     $stmt->fetch();
+                    echo '<script>';
+                    echo 'console.log("Logging in as ' . $name . '");';
+                    echo 'login("' . $name . '");';
+                    echo 'window.location.href = "home.php";';
+                    echo '</script>';
                     ?>
-                    <script src="js/user.js">
-                    login(<?php echo $name; ?>);
-                    </script>
                     <?php 
                 }
             }
         ?>
-        <?php include('nav.php'); ?>
-        <div id="sign-in-up" class="container center-block row">
-            <div class="col-md-6 boxcol">
-                <form action="signup.php" method="post" class="form-signin">
-                    <h2 class="form-signin-heading" id="emph">Sign In and Sell!</h2>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
-                    oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required
-                    oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <input id="login_button" class="btn btn-lg btn-primary btn-block" type="submit">
-                </form>
-            </div>
+        <main>
+            <div id="sign-in-up" class="container center-block row">
+                <div class="col-md-6 boxcol">
+                    <form action="signup.php" method="post" class="form-signin">
+                        <h2 class="form-signin-heading" id="emph">Sign In and Sell!</h2>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus
+                        oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required
+                        oninvalid="this.setCustomValidity('You must fill out all fields to sign in to your account')" onchange="this.setCustomValidity('')">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <input id="login_button" class="btn btn-lg btn-primary btn-block" type="submit">
+                    </form>
+                </div>
 
-            <div class="col-md-6 boxcol">
-                <form class="form-signin">
-                    <h2 class="form-signin-heading" id="emph">Create an Account!</h2>
-                    <label for="inputFirst" class="sr-only">First Name</label>
-                    <input type="text" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
-                    <label for="inputLast" class="sr-only">Last Name</label>
-                    <input type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
-                    <label for="inputEmail" class="sr-only">Email address</label>
-                    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-                    <label for="inputPassword" class="sr-only">Password</label>
-                    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                    <div class="checkbox">
-                        <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
-                          oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
-                          By clicking this you agree to BeachBooks's <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
-                    </div>
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-                </form>
-            </div>
+                <div class="col-md-6 boxcol">
+                    <form class="form-signin">
+                        <h2 class="form-signin-heading" id="emph">Create an Account!</h2>
+                        <label for="inputFirst" class="sr-only">First Name</label>
+                        <input type="text" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
+                        <label for="inputLast" class="sr-only">Last Name</label>
+                        <input type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
+                        <label for="inputEmail" class="sr-only">Email address</label>
+                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
+                              oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
+                              By clicking this you agree to BeachBooks's <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+                    </form>
+                </div>
 
-        </div> <!-- /container -->
+            </div> <!-- /container -->
+        </main>
 
         <div class="container">
             <div class="modal fade" id="termsModal" role="dialog">
@@ -386,7 +391,5 @@
             </div>
         </div>
 
-        <script src="js/jquery-3.2.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

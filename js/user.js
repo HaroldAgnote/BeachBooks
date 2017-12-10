@@ -14,6 +14,7 @@ else
 
 function login(username)
 {
+    console.log("Hello?");
     user = username;
     localStorage["user"] = username;
     console.log("Logged in as " + username);
@@ -52,6 +53,7 @@ function greeting() {
     if (name === "Guest") {
         greeting.innerHTML = "Welcome, Guest!";
         document.getElementById('message_button').style.display = "none";
+        document.getElementById('Logout_button').style.display = "none";
     } else {
         greeting.innerHTML = "Hello, " + name + "! ";
         var sign_up_button = document.getElementById('Signup_button')
@@ -59,4 +61,7 @@ function greeting() {
         document.getElementById('signin_button').style.display = "none";
     }
 }
-greeting();
+
+$('document').ready(function(){
+    greeting();
+});

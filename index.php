@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/cover.css">
   <link rel="stylesheet" href="css/style.css">
   <title>BeachBooks - Welcome</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
   <div class="site-wrapper">
@@ -41,7 +42,6 @@
       </div>
     </div>
   </div>
-  <script src="js/jquery-3.2.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
 </body>
 </html>
