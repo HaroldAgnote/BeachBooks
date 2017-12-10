@@ -20,28 +20,8 @@
             if ($db->connect_errno) {
                 echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
             }
-            if (empty($_POST["email"])) {
-            
-            } else {
-                $query = " SELECT ClientName FROM Users
-                        NATURAL JOIN Client
-                        WHERE ClientEmail = ? AND
-                        Password = ?;";
-                if ($stmt = $db->prepare($query)) {
-                    $stmt->bind_param("ss", $email, $password);
-                    $email = $_POST["email"];
-                    $password = $_POST["password"];
-                    $result = $stmt->execute();
-                    while($row = mysqli_fetch_assoc($result)) {
-                        $name = $row['ClientName']; 
-                    }
-
-                }
-            }
         ?>
         <?php include('nav.php'); ?>
-
-    
         <div class="container">
             <table class="table table-bordered" id="bookList">
                 <tr>
@@ -52,8 +32,9 @@
                     <th>Edition</th>
                     <th>Used in Course</th>
                     <th>Condition</th>
+                    <th>Price</th>
                 </tr>
-                <?php 
+                <?php
 
                     if (empty($_GET)) {
                         $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL
@@ -89,16 +70,17 @@
                         <td class="bookSeller">
                             <?php echo $seller; ?>
                         </td>
-                        <td>
-                        <img src="<?php echo $cover ?>" style="width:20%; height:20%" alt="CECS Textbook"></img>
+                        <td style="height:150px;width:200px;">
+                          <img class="bookCover" src="<?php echo $cover ?>" style="max-width:55%;height:auto;" alt="CECS Textbook"></img>
                         </td>
                         <td class="bookTitle"><?php echo $title; ?></td>
                         <td class="bookAuthor"><?php echo $author ?></td>
                         <td class="bookEdition"><?php echo $edition;?></td>
                         <td class="bookCourses"> <?php echo $class; ?></td>
                         <td class="bookCondition"><?php echo $condition; ?></td>
+                        <td class="bookPrice"><!-- <?php echo $condition; ?> --></td>
                     </tr>
-                    
+
                 <?php
 
                     }
@@ -117,21 +99,22 @@
                             <h4>BeachBooks</h4>
                         </div>
                         <div class="modal-body">
-                            <ul>
-                                <li id="bookModalTitle"></li>
-                                <li id="bookModalAuthor"></li>
-                                <li id="bookModalEdition"></li>
-                                <li id="bookModalSeller"></li>
-                            </ul>
-                            <div class="modal-footer">
-                              <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
-                                BeachBooks
-                            </div>
+                          <ul>
+                              <li id="bookModalTitle"></li>
+                              <li id="bookModalAuthor"></li>
+                              <li id="bookModalEdition"></li>
+                              <li id="bookModalSeller"></li>
+                          </ul>
+                        </div>
+                        <div class="modal-footer">
+                          <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
+                            BeachBooks
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

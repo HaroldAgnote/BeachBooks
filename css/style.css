@@ -30,6 +30,8 @@ div{
 
 a.outset{
     border: 2px outset lightgrey;
+    box-shadow: none;
+    transition: box-shadow 0.5s;
 }
 
 a.outset:visited{
@@ -38,6 +40,8 @@ a.outset:visited{
 
 a.outset:hover{
     border: 2px outset black;
+    box-shadow: 0 0 24px yellow;
+    transition: box-shadow 0.9s;
 }
 
 a.outset:active{
@@ -85,6 +89,19 @@ textarea{
     resize: none;
 }
 
+div.panel-primary{
+    box-shadow: 0 0 6px #494949;
+}
+
+div.panel-primary:default{
+    box-shadow: none;
+}
+
+div.panel-heading:hover{
+    background-color: blue;
+    transition: background-color 0.25s ease-in-out;
+}
+
 input.nav-field{
     height: 20px;
     border-radius: 0;
@@ -98,8 +115,8 @@ ul li:hover{
     font-weight: bold;
 }
 
-div.panel-group div:hover{
-    background-color: #aaaaaa;
+form input{
+    margin: 0 0 5px 0;
 }
 
 #about-format{
@@ -110,10 +127,4 @@ div.panel-group div:hover{
 
 #badge-spacing{
     margin: 0 0 5px 0;
-}
-
-#about-format{
-    height:500px;
-    overflow:scroll;
-    text-align:justify;
 }
