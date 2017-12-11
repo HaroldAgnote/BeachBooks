@@ -24,26 +24,17 @@
           <!-- TODO: Link to Sign Up Page -->
                 <a id="Signup_button" href="signup.php" class="btn btn-success" role="button">Sign Up</a>
                 <a id="Logout_button" href="signup.php" onclick="logout()" class="btn btn-success" role="button">Log Out</a/>
-                <div id="message_button" onclick="loadRequests()" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
+                <form action='request.php' id="request_form" class="btn btn-warning" method='POST'>
+                    <input type="hidden" name="user_id" id="user_id_input">
+                    <button id="message_button" class="btn btn-warning" type="submit"><!--Seller Modal - figure out how to implement it-->
                     <span class="glyphicon glyphicon-envelope"></span>
                     <span class="badge" id="badge-spacing">0</span>
-                </div>
+                    </button>
+                </form>
             </div>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 <script>
-    function loadRequests() {
-        $.ajax({
-            url: 'request.php',
-            data: {
-                    user_id: localStorage["user_id"],
-            },
-            type: 'post',
-            success: function(data) {
-                location.href = 'request.php';
-            },
-        });
-        return true;
-    }
+    document.getElementById('user_id_input').value = localStorage["user_id"];
 </script>

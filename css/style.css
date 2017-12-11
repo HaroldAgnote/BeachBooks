@@ -111,6 +111,10 @@ div.shadeless{
     text-shadow: none;
 }
 
+#request_form {
+    border: 0;
+    padding: 3px 3px;
+}
 ul li:hover{
     font-weight: bold;
 }
