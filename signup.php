@@ -25,7 +25,7 @@
             }
             if (empty($_POST["email"])) {
             } else {
-                $query = "SELECT ClientName FROM Users
+                $query = "SELECT UserID, ClientName FROM Users
                         NATURAL JOIN Client
                         WHERE ClientEmail = ? AND
                         Password = ?;";
@@ -34,11 +34,16 @@
                     $email = $_POST["email"];
                     $password = $_POST["password"];
                     $stmt->execute();
-                    $stmt->bind_result($name);
-                    $stmt->fetch();
+                    $result = $stmt->get_result();
+                    while($row = $result->fetch_assoc()) {
+                        foreach ($row as $r) {
+                            $name = $row['ClientName'];
+                            $user_id = $row['UserID'];
+                        }
+                    }
                     echo '<script>';
                     echo 'console.log("Logging in as ' . $name . '");';
-                    echo 'login("' . $name . '");';
+                    echo 'login("' . $name . '", ' . $user_id . ');';
                     echo 'window.location.href = "home.php";';
                     echo '</script>';
                     ?>

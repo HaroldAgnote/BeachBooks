@@ -39,30 +39,30 @@ if ($db->connect_errno) {
 <?php
 $stmt;
 if (empty($_GET)) {
-    $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL
-        FROM Client c
-        INNER JOIN Seller s
-        ON c.UserID = s.UserID
+    $query = " SELECT u.UserName, b.BookID, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL, co.SellingPrice, co.CopyID
+        FROM Users u
+        INNER JOIN Client c
+        ON u.UserID = c.UserID
         INNER JOIN Copy co
-        ON s.SellerID = co.SellerID
+        ON c.UserID = co.SellerID
         INNER JOIN Book b
         ON co.BookID = b.BookID
         INNER JOIN Classes cl
         ON cl.BookID = b.BookID
         INNER JOIN BookCover bc
-        ON co.COPYID = bc.COPYID;
+        ON co.CopyId = bc.CopyId;
     " ;
     if ($stmt = $db->prepare($query)) {
 
     }
 } else {
     $input = "%" . $_GET["search_query"] . "%";
-    $query = " SELECT c.ClientName, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL 
-        FROM Client c
-        INNER JOIN Seller s
-        ON c.UserID = s.UserID
+    $query = " SELECT u.UserName, b.BookID, b.Title, b.Author, b.Edition, cl.ClassSubjNum, co.Conditions, bc.URL, co.SellingPrice, co.CopyID
+        FROM Users u
+        INNER JOIN Client c
+        ON u.UserID = c.UserID
         INNER JOIN Copy co
-        ON s.SellerID = co.SellerID
+        ON c.UserID = co.SellerID
         INNER JOIN Book b
         ON co.BookId = b.BookId
         INNER JOIN Classes cl
@@ -73,14 +73,16 @@ if (empty($_GET)) {
         OR 
         b.author LIKE ?
         OR
-        c.ClientName LIKE ?
+        u.UserName LIKE ?
         OR
         cl.ClassSubjNum LIKE ?;";
 
     if ($stmt = $db->prepare($query)) {
         // $stmt->bind_param('ssss', $title, $author, $client, $class);
         $stmt->bind_param('ssss', $input, $input, $input, $input);
-    } 
+    } else {
+        echo "Failed to query"; 
+    }
 } 
 $stmt->execute();
 $result = $stmt->get_result();
@@ -92,24 +94,27 @@ $counter=1;
 <?php
 while($row = $result->fetch_assoc()) {
     foreach ($row as $r) {
-        $book_id = "TEST";
-        $seller = $row['ClientName'];
+        $book_id = $row['BookID'];
+        $copy_id = $row['CopyID'];
+        $seller = $row['UserName'];
         $cover = $row['URL'];
         $title = $row['Title'];
         $author = $row['Author'];
         $edition = $row['Edition'];
         $class = $row['ClassSubjNum'];
         $condition = $row['Conditions'];
+        $price = $row['SellingPrice'];
         $counter = $counter + 1;
-        ?>
-        <script>
-        var book = {
-        "book_id": "<?php echo $book_id;?>",
-        "title": "<?php echo $title;?>",
-        }
-        </script>
+    } ?>
+    <script>
+    var book = {
+    "book_id": "<?php echo $book_id;?>",
+    "copy_id": "<?php echo $copy_id;?>",
+    "title": "<?php echo $title;?>",
+    };
+    books.push(book);
+    </script>
     <?php
-    }
 ?>
                         <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                             <td class="bookSeller">
@@ -123,7 +128,7 @@ while($row = $result->fetch_assoc()) {
                             <td class="bookEdition"><?php echo $edition;?></td>
                             <td class="bookCourses"> <?php echo $class; ?></td>
                             <td class="bookCondition"><?php echo $condition; ?></td>
-                            <td class="bookPrice"><!-- <?php echo $condition; ?> --></td>
+                            <td class="bookPrice"><?php echo $price; ?> </td>
                         </tr>
 
 <?php

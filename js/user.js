@@ -12,11 +12,12 @@ else
     console.log("Logged in as " + user);
 }
 
-function login(username)
+function login(username, user_id)
 {
     console.log("Hello?");
     user = username;
     localStorage["user"] = username;
+    localStorage["user_id"] = user_id;
     console.log("Logged in as " + username);
 }
 
