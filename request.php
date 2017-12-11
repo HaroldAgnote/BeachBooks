@@ -15,104 +15,122 @@ on YouTube when you are logged in -->
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <script src="js/jquery-3.2.1.min.js"></script>
 
     </head>
     <body>
+        <?php
+        $db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+        if ($db->connect_errno) {
+            echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
+        }
+        ?>
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
 
-        <div class="container center-block row">
-            <!-- Implement an alert that shows up in front of the page when the buyer clicks the 'Agree to Appointment' button-->
-            <div class="col-md-6">
-                <h1 class="form-signin-heading" style="text-align:center;">YOUR REQUESTS</h1>
-                <div class="panel-group" id="accordion">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq1">
-                            <h4 class="panel-title">
-                                Book A
-                            </h4>
+        <main>
+            <div class="container center-block row">
+                <!-- Implement an alert that shows up in front of the page when the buyer clicks the 'Agree to Appointment' button-->
+                <div class="col-md-6">
+                    <h1 class="form-signin-heading" style="text-align:center;">YOUR REQUESTS</h1>
+                    <div class="panel-group" id="accordion">
+                    <?php
+        $my_query = "SELECT s.UserName, b.title, b.author, bc.URL, co.SellingPrice, co.CopyID
+                    FROM Request r
+                    INNER JOIN Copy co
+                    ON r.CopyID = co.CopyID
+                    INNER JOIN Book b
+                    ON b.BookID = co.BookID
+                    INNER JOIN BookCover bc
+                    ON bc.CopyID = co.CopyID
+                    INNER JOIN Client c
+                    ON c.UserID = co.SellerID
+                    INNER JOIN Users s
+                    ON s.UserID = c.UserID
+                    ;";
+                    $stmt;
+                    if ($stmt = $db ->prepare($my_query)) {
+                    
+                    } else {
+                        echo "Preparation failed";
+                        echo $db->error;
+                    }
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+                    while ($row = $result->fetch_assoc()) {
+                        foreach ($row as $r) {
+                            $seller_name=$row['UserName'];
+                            $book_title=$row['title'];
+                            $author = $row['author'];
+                            $cover = $row['URL'];
+                            $price = $row['SellingPrice'];
+                        } ?>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq1">
+                                <h4 class="panel-title">
+                                    <?php echo $book_title; ?>
+                                </h4>
+                            </div>
+                            <div id="yourReq1" class="panel-collapse collapse">
+                                <div class="panel-body"><h4>Location Info 1</h4></div>
+                            </div>
+                            <div class="panel-footer">Requesting from: <b><i><?php echo $seller_name; ?></b></i>
+                                <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
+                            </div>
                         </div>
-                        <div id="yourReq1" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Location Info 1</h4></div>
-                        </div>
-                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq2">
-                            <h4 class="panel-title">
-                                Book B
-                            </h4>
-                        </div>
-                        <div id="yourReq2" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Location Info 2</h4></div>
-                        </div>
-                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq3">
-                            <h4 class="panel-title">
-                                Book C
-                            </h4>
-                        </div>
-                        <div id="yourReq3" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Location Info 3</h4></div>
-                        </div>
-                        <div class="panel-footer">Requesting from: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
-                        </div>
+                        
+                    <?php
+                    }
+                    ?>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-6">
-                <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
-                <div class="panel-group" id="accordion2">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">
-                            <h4 class="panel-title">
-                                Book A
-                            </h4>
+                <div class="col-md-6">
+                    <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
+                    <div class="panel-group" id="accordion2">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">
+                                <h4 class="panel-title">
+                                    Book A
+                                </h4>
+                            </div>
+                            <div id="buyerReq1" class="panel-collapse collapse">
+                              <div class="panel-body"><h4>Book Info 1</h4></div>
+                            </div>
+                            <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                                <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                            </div>
                         </div>
-                        <div id="buyerReq1" class="panel-collapse collapse">
-                          <div class="panel-body"><h4>Book Info 1</h4></div>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq2">
+                                <h4 class="panel-title">
+                                    Book B
+                                </h4>
+                            </div>
+                            <div id="buyerReq2" class="panel-collapse collapse">
+                              <div class="panel-body"><h4>Book Info 2</h4></div>
+                            </div>
+                            <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                                <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                            </div>
                         </div>
-                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq2">
-                            <h4 class="panel-title">
-                                Book B
-                            </h4>
-                        </div>
-                        <div id="buyerReq2" class="panel-collapse collapse">
-                          <div class="panel-body"><h4>Book Info 2</h4></div>
-                        </div>
-                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
-                        </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq3">
-                            <h4 class="panel-title">
-                                Book C
-                            </h4>
-                        </div>
-                        <div id="buyerReq3" class="panel-collapse collapse">
-                            <div class="panel-body"><h4>Book Info 3</h4></div>
-                        </div>
-                        <div class="panel-footer">Requested by: <b><i>Username</b></i>
-                            <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                        <div class="panel panel-primary">
+                            <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq3">
+                                <h4 class="panel-title">
+                                    Book C
+                                </h4>
+                            </div>
+                            <div id="buyerReq3" class="panel-collapse collapse">
+                                <div class="panel-body"><h4>Book Info 3</h4></div>
+                            </div>
+                            <div class="panel-footer">Requested by: <b><i>Username</b></i>
+                                <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
 
         <!-- Alert for agreeing to an appointment location and date set by a seller -->
         <div class="container">
@@ -122,7 +140,6 @@ on YouTube when you are logged in -->
             </div>
         </div>
 
-        <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </body>
 </html>

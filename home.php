@@ -116,7 +116,7 @@ while($row = $result->fetch_assoc()) {
     </script>
     <?php
 ?>
-                        <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
+                        <tr id="<?php echo $copy_id; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
                             <td class="bookSeller">
                                 <?php echo $seller; ?>
                             </td>
@@ -167,16 +167,22 @@ while($row = $result->fetch_assoc()) {
         </div>
     </div>
 
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/loadBookModal.js"></script>
         <script>
-            var take_offer_button = document.getElementById('take_offer_button'); 
-            
             function request_book() {
+                console.log(copy_id);
                 console.log("Hi :) ");
-                $.get("request_book.php");  
+                $.ajax({
+                url: 'request_book.php',
+                    data: {
+                            user_id: localStorage["user_id"],
+                            copy_id: copy_id,
+                    },
+                    type: 'post',
+                });
                 return false;
             }
         </script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/loadBookModal.js"></script>
     </body>
 </html>
