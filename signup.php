@@ -75,8 +75,10 @@
                         <input name="last_name" type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
                         <label for="inputEmail" class="sr-only">Email address</label>
                         <input name="new_email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <label for="inputUsername" class="sr-only">Email address</label>
+                        <input name="new_username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
                         <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
+                        <input name="new_password" type="password" id="newPassword" class="form-control" placeholder="Password" required>
                         <input type="password" id="confirmNewPassword" class="form-control" placeholder="Confirm Password" required>
                         <div class="checkbox">
                             <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus

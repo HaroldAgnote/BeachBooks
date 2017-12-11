@@ -81,12 +81,18 @@ if (empty($_GET)) {
         // $stmt->bind_param('ssss', $title, $author, $client, $class);
         $stmt->bind_param('ssss', $input, $input, $input, $input);
     } 
-}
+} 
 $stmt->execute();
 $result = $stmt->get_result();
 $counter=1;
+?>
+<script>
+    var books = [];
+</script>
+<?php
 while($row = $result->fetch_assoc()) {
     foreach ($row as $r) {
+        $book_id = "TEST";
         $seller = $row['ClientName'];
         $cover = $row['URL'];
         $title = $row['Title'];
@@ -95,7 +101,14 @@ while($row = $result->fetch_assoc()) {
         $class = $row['ClassSubjNum'];
         $condition = $row['Conditions'];
         $counter = $counter + 1;
-
+        ?>
+        <script>
+        var book = {
+        "book_id": "<?php echo $book_id;?>",
+        "title": "<?php echo $title;?>",
+        }
+        </script>
+    <?php
     }
 ?>
                         <tr id="book_<?php echo $counter; ?>" class="bookEntry" data-toggle="modal" data-target="#bookModal">
@@ -141,7 +154,7 @@ while($row = $result->fetch_assoc()) {
                           </ul>
                         </div>
                         <div class="modal-footer">
-                          <a class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
+                          <a onclick="request_book()" data-dismiss="modal" id="take_offer_button" class="btn btn-lg btn-success btn-block" role="button">Take the Offer</a>
                         </div>
                     </div>
                 </div>
@@ -149,6 +162,15 @@ while($row = $result->fetch_assoc()) {
         </div>
     </div>
 
+        <script>
+            var take_offer_button = document.getElementById('take_offer_button'); 
+            
+            function request_book() {
+                console.log("Hi :) ");
+                $.get("request_book.php");  
+                return false;
+            }
+        </script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/loadBookModal.js"></script>
     </body>
