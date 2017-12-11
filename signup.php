@@ -67,37 +67,38 @@
                 </div>
 
                 <div class="col-md-6 boxcol">
-                    <form class="form-signin">
+                    <form action="confirm_sign_up.php" method="post" class="form-signin">
                         <h2 class="form-signin-heading" id="emph">Create an Account!</h2>
                         <label for="inputFirst" class="sr-only">First Name</label>
-                        <input type="text" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
+                        <input name="first_name" type="text" id="inputFirst" class="form-control" placeholder="First Name" required autofocus>
                         <label for="inputLast" class="sr-only">Last Name</label>
-                        <input type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
+                        <input name="last_name" type="text" id="inputLast" class="form-control" placeholder="Last Name" required autofocus>
                         <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <input name="new_email" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <input type="password" id="confirmInputPassword" class="form-control" placeholder="Confirm Password" required>
+                        <input type="password" id="newPassword" class="form-control" placeholder="Password" required>
+                        <input type="password" id="confirmNewPassword" class="form-control" placeholder="Confirm Password" required>
                         <div class="checkbox">
                             <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
                               oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
                               By clicking this you agree to BeachBooks's <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
                         </div>
-                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+                        <input class="btn btn-lg btn-primary btn-block" type="submit">
                     </form>
                 </div>
                 <script>
-                    var password = document.getElementById("inputPassword")
-                      , confirm_password = document.getElementById("confirmInputPassword");
+                    var password = document.getElementById("newPassword");
+                    var confirm_password = document.getElementById("confirmNewPassword");
 
                     function validatePassword(){
+                        console.log("Password - " + password.value);
+                        console.log("Confirm Password - " + confirm_password.value);
                       if(password.value != confirm_password.value) {
                         confirm_password.setCustomValidity("Passwords Don't Match");
                       } else {
                         confirm_password.setCustomValidity('');
                       }
                     }
-
                     password.onchange = validatePassword;
                     confirm_password.onkeyup = validatePassword;
                 </script>
