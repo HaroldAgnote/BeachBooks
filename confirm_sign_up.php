@@ -10,7 +10,7 @@
         <title>BeachBooks - Home</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <script src="js/jquery-3.2.1.min.js"></script>
 
     </head>

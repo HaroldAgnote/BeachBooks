@@ -53,7 +53,7 @@ function greeting() {
     var greeting = document.getElementById('greeting');
     if (name === "Guest") {
         greeting.innerHTML = "Welcome, Guest!";
-        document.getElementById('message_button').style.display = "none";
+        document.getElementById('request_form').style.display = "none";
         document.getElementById('Logout_button').style.display = "none";
     } else {
         greeting.innerHTML = "Hello, " + name + "! ";

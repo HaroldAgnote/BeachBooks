@@ -92,9 +92,12 @@ CREATE TABLE Request (
 
 -- Create TEMP table for Exchange
 CREATE TABLE Exchange (
-    ExchangeID int ,
+    ExchangeID int AUTO_INCREMENT,
     RequestID int,
     ExchangeOccurred boolean,
+    ExchangeDate DATE,
+    ExchangeTime VARCHAR(6),
+    ExchangeInformation TEXT,
 
     PRIMARY KEY (ExchangeID),
     FOREIGN KEY (RequestID) REFERENCES Request(RequestID));

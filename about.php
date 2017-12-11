@@ -10,7 +10,7 @@
     <title>BeachBooks - Set Up Appointment</title>
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
 </head>
 <body>
