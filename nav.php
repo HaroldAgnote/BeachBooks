@@ -24,11 +24,26 @@
           <!-- TODO: Link to Sign Up Page -->
                 <a id="Signup_button" href="signup.php" class="btn btn-success" role="button">Sign Up</a>
                 <a id="Logout_button" href="signup.php" onclick="logout()" class="btn btn-success" role="button">Log Out</a/>
-                <a id="message_button" href="request.php" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
+                <div id="message_button" onclick="loadRequests()" class="btn btn-warning" role="button"><!--Seller Modal - figure out how to implement it-->
                     <span class="glyphicon glyphicon-envelope"></span>
                     <span class="badge" id="badge-spacing">0</span>
-                </a>
+                </div>
             </div>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<script>
+    function loadRequests() {
+        $.ajax({
+            url: 'request.php',
+            data: {
+                    user_id: localStorage["user_id"],
+            },
+            type: 'post',
+            success: function(data) {
+                location.href = 'request.php';
+            },
+        });
+        return true;
+    }
+</script>
