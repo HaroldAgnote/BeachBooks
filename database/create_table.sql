@@ -40,9 +40,9 @@ CREATE TABLE Client (
 -- Create the table for Book
 CREATE TABLE Book (
     BookID int AUTO_INCREMENT,
-    title varchar(50),
+    title varchar(100),
     author varchar(30),
-    ISBN integer,
+    ISBN varchar(30),
     Edition varchar(30),
     Publisher varchar(30),
     PublishDate varchar(30),
@@ -53,7 +53,7 @@ CREATE TABLE Book (
 -- Create the table for Classes
 CREATE TABLE Classes (
     ClassSubjNum varchar(30),
-    CourseName varchar(30),
+    CourseName varchar(100),
     BookID int,
     
     PRIMARY KEY (BookID, ClassSubjNum),
