@@ -1,4 +1,7 @@
 <script src="js/user.js"></script>
+<?php 
+    session_start();
+?>
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container"><!--- TODO: For Seebass - change margin for nav div.container -->
         <div class="navbar-header">
@@ -11,6 +14,9 @@
             <a class="navbar-brand" href="index.php" style="color:#001d3a">BeachBooks</a>
         </div>
         <form action="home.php" method="GET" class="navbar-form navbar-left">
+            <div class="navbar-left">
+                <a href="home.php" id="home_button" class="btn btn-warning">Home</a>
+            </div>
             <div class="form-group">
                 <input name="search_query" id="input-style" class="form-control" type="text" placeholder="Search Database" class="form-control circular">
                 <input type="Submit" class="form-control" value="Search">

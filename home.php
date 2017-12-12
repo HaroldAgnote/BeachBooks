@@ -25,6 +25,7 @@ if ($db->connect_errno) {
         <?php include('nav.php'); ?>
         <main>
             <div class="container">
+                <a id="Signup_button" href="post.php" class="btn btn-success" role="button">Post Book</a>
                 <table class="table table-bordered" id="bookList">
                     <tr>
                         <th>Seller</th>

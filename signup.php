@@ -41,6 +41,7 @@
                             $user_id = $row['UserID'];
                         }
                     }
+                    $_SESSION["user_id"] = $user_id;
                     echo '<script>';
                     echo 'console.log("Logging in as ' . $name . '");';
                     echo 'login("' . $name . '", ' . $user_id . ');';

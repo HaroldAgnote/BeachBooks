@@ -130,9 +130,26 @@ form input{
     margin: 0 0 5px 0;
 }
 main {
-    margin-top: 3em;
+    margin-top: 5em;
 }
 
 #bookModalCover {
     list-style-type: none;
+}
+
+#home_button {
+    margin: 0 5px;
+}
+
+label {
+    margin-top: 1em;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
 }
