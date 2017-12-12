@@ -115,9 +115,6 @@ div.shadeless{
     border: 0;
     padding: 3px 3px;
 }
-ul li:hover{
-    font-weight: bold;
-}
 
 form input{
     margin: 0 0 5px 0;
