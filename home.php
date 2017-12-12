@@ -50,8 +50,8 @@ if (empty($_GET)) {
         INNER JOIN Classes cl
         ON cl.BookID = b.BookID
         INNER JOIN BookCover bc
-        ON co.CopyId = bc.CopyId;
-    " ;
+        ON co.CopyId = bc.CopyId
+        ORDER BY cl.ClassSubjNum;";
     if ($stmt = $db->prepare($query)) {
 
     }
@@ -75,7 +75,8 @@ if (empty($_GET)) {
         OR
         u.UserName LIKE ?
         OR
-        cl.ClassSubjNum LIKE ?;";
+        cl.ClassSubjNum LIKE ?
+        ORDER BY cl.ClassSubjNum;";
 
     if ($stmt = $db->prepare($query)) {
         // $stmt->bind_param('ssss', $title, $author, $client, $class);
