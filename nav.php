@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="home.php" style="color:#001d3a">BeachBooks</a>
+            <a class="navbar-brand" href="home.php">BeachBooks</a>
         </div>
         <form action="home.php" method="GET" class="navbar-form navbar-left">
             <div class="form-group">
