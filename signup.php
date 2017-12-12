@@ -47,7 +47,7 @@
                     echo 'window.location.href = "home.php";';
                     echo '</script>';
                     ?>
-                    <?php 
+                    <?php
                 }
             }
         ?>
@@ -406,9 +406,6 @@
                               </li>
                           </ol>
                         </p>
-                      </div>
-                      <div class="modal-footer">
-                          <button>A</button>
                       </div>
                     </div>
                 </div>
