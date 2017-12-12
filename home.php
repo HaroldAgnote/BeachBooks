@@ -105,6 +105,7 @@ while($row = $result->fetch_assoc()) {
         $class = $row['ClassSubjNum'];
         $condition = $row['Conditions'];
         $price = $row['SellingPrice'];
+        $price = sprintf("$ %1\$.2f", $price);
         $counter = $counter + 1;
     } ?>
     <script>
