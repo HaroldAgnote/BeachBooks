@@ -10,71 +10,72 @@
         <title>BeachBooks - Set Up Appointment</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <script src="js/jquery-3.2.1.min.js"></script>
 
     </head>
     <body>
         <!-- Fixed navbar -->
         <?php include('nav.php'); ?>
+        <?php 
+            $request_id = $_POST["request_id"] ;
+        ?>
 
-        <div class="container center-block row">
+        <main>
+            <div class="container center-block row">
 
-            <div class="col-md-12">
-                <h1 class="form-signin-heading" style="text-align:center;">MAKE AN APPOINTMENT</h1>
-            </div>
-            <br>
-            <!--Google API -->
-            <div class="col-md-6">
-                <form class="form-signin">
-                      <script>
-                      </script>
-                </form>
-            </div>
-
-            <div class="col-md-6">
-                <div class="row">
-                        <div class="col-sm-4">
-                            <form><label>Month</label>
-                            <select class="form-control" name="appoint-month">
-                                <option value="jan">January</option>
-                                <option value="feb">February</option>
-                                <option value="mar">March</option>
-                                <option value="apr">April</option>
-                                <option value="may">May</option>
-                                <option value="jun">June</option>
-                                <option value="jul">July</option>
-                                <option value="aug">August</option>
-                                <option value="sep">September</option>
-                                <option value="oct">October</option>
-                                <option value="nov">November</option>
-                                <option value="dec">December</option>
-                            </select></form>
-                        </div>
-                        <div class="col-sm-4">
-                            <form><label>Day</label>
-                            <input class="form-control" type="number" name="appoint-day" min="1" max="31" value="1">
-                            </input></form>
-                        </div>
-                        <div class="col-sm-4">
-                            <form><label>Time</label>
-                            <input class="form-control" type="time" name="appoint_time"></form>
-                        </div>
-                </div><br>
-                <form>
-                    <label>Specifications</label>
-                    <textarea class="form-control" name="appoint-specs" rows="10"
-                        placeholder="Enter any specific directions or location..."></textarea>
-                </form>
+                <div class="col-md-12">
+                    <h1 class="form-signin-heading" style="text-align:center;">MAKE AN APPOINTMENT</h1>
+                </div>
                 <br>
-                <form>
-                    <input type="checkbox" name="terms" value="agree">By clicking this you agree to BeachBooks's
-                    <a data-toggle="modal" data-target="#termsModal"><strong>Terms and Condition</strong></a>
+                <div class="col-md-6">
+                    <form action="appointment_confirm.php", method="POST">
+                    <div class="row">
+                            <div class="col-sm-4">
+                                <label>Month</label>
+                                <select required class="form-control" name="appoint-month">
+                                    <option value="jan">January</option>
+                                    <option value="feb">February</option>
+                                    <option value="mar">March</option>
+                                    <option value="apr">April</option>
+                                    <option value="may">May</option>
+                                    <option value="jun">June</option>
+                                    <option value="jul">July</option>
+                                    <option value="aug">August</option>
+                                    <option value="sep">September</option>
+                                    <option value="oct">October</option>
+                                    <option value="nov">November</option>
+                                    <option value="dec">December</option>
+                                </select>
+                                <label>Day</label>
+                                <input required="required" class="form-control" type="number" name="appoint-day" min="1" max="31" value="1">
+                                </input>
+                                <label>Year</label>
+                                <input required="required" class="form-control" type="number" name="appoint-year" min="2017" max="9999" value="2017">
+                                </input>
+                            </div>
+                            <div class="col-sm-4">
+                                <label>Time</label>
+                                <input required="required" class="form-control" type="time" name="appoint_time">
+                            </div>
+                    </div><br>
+                        <label>Specifications</label>
+                        <textarea class="form-control" name="appoint-specs" rows="10"
+                            placeholder="Enter any specific directions or location..."></textarea>
+                    <br>
+                    <div class="checkbox">
+                        <label><input type="checkbox" id="terms" name="terms" value="agree" required autofocus
+                          oninvalid="this.setCustomValidity('You must agree to the Terms of Service before creating an account.')" onchange="this.setCustomValidity('')">
+                          By clicking this you agree to BeachBooks's <a data-toggle="modal" data-target="#termsModal"><strong>Terms of Service</strong></a></label>
+                    </div>
+                    <br>
+                    <input name="request_id" id="request_id_hide" type="hidden" value="0">
+                    <button class="btn btn-lg btn-success btn-block" type="submit">Set the Appointment</button>
+                    <button class="btn btn-lg btn-danger btn-block" type="reset">On Second Thought...</button>
+                </div>
                 </form>
-                <br>
-                <button class="btn btn-lg btn-success btn-block" type="submit">Set the Appointment</button>
-                <button class="btn btn-lg btn-danger btn-block" type="submit">On Second Thought...</button>
             </div>
-        </div>
+        </main>
 
         <div class="container">
             <div class="modal fade" id="termsModal" role="dialog">
@@ -377,7 +378,9 @@
             </div>
         </div>
 
-        <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+        <script>
+            document.getElementById('request_id_hide').value = <?php echo $request_id; ?>;
+        </script>
     </body>
 </html>

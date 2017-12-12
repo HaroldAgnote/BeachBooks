@@ -10,7 +10,7 @@
         <title>BeachBooks - Home</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <script src="js/jquery-3.2.1.min.js"></script>
 
     </head>
@@ -50,8 +50,8 @@ if (empty($_GET)) {
         INNER JOIN Classes cl
         ON cl.BookID = b.BookID
         INNER JOIN BookCover bc
-        ON co.CopyId = bc.CopyId;
-    " ;
+        ON co.CopyId = bc.CopyId
+        ORDER BY cl.ClassSubjNum;";
     if ($stmt = $db->prepare($query)) {
 
     }
@@ -75,7 +75,8 @@ if (empty($_GET)) {
         OR
         u.UserName LIKE ?
         OR
-        cl.ClassSubjNum LIKE ?;";
+        cl.ClassSubjNum LIKE ?
+        ORDER BY cl.ClassSubjNum;";
 
     if ($stmt = $db->prepare($query)) {
         // $stmt->bind_param('ssss', $title, $author, $client, $class);
@@ -104,6 +105,7 @@ while($row = $result->fetch_assoc()) {
         $class = $row['ClassSubjNum'];
         $condition = $row['Conditions'];
         $price = $row['SellingPrice'];
+        $price = sprintf("$ %1\$.2f", $price);
         $counter = $counter + 1;
     } ?>
     <script>

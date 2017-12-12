@@ -14,7 +14,7 @@ on YouTube when you are logged in -->
         <title>BeachBooks - Request</title>
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+        <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
         <script src="js/jquery-3.2.1.min.js"></script>
 
     </head>
@@ -57,7 +57,7 @@ on YouTube when you are logged in -->
                     <h1 class="form-signin-heading" style="text-align:center;">YOUR REQUESTS</h1>
                     <div class="panel-group" id="accordion">
                     <?php
-        $seller_query = "SELECT s.UserName, b.title, b.author, bc.URL, co.SellingPrice, co.CopyID
+        $seller_query = "SELECT r.RequestID, s.UserName, b.title, b.author, bc.URL, co.SellingPrice, co.CopyID
                     FROM Request r
                     INNER JOIN Copy co
                     ON r.CopyID = co.CopyID
@@ -71,6 +71,12 @@ on YouTube when you are logged in -->
                     ON s.UserID = c.UserID
                     WHERE r.BuyerID= ?
                     ;";
+        $exchange_query = "SELECT e.ExchangeID, e.ExchangeDate, e.ExchangeTime, e.ExchangeInformation
+                            FROM Exchange e
+                            INNER JOIN Request r
+                            ON e.RequestID = r.RequestID
+                            WHERE r.RequestID = ? ";
+                            
                     $seller_stmt;
                     if ($seller_stmt = $db ->prepare($seller_query)) {
                         $seller_stmt->bind_param("i", $user_id);
@@ -82,12 +88,32 @@ on YouTube when you are logged in -->
                     $result = $seller_stmt->get_result();
                     while ($row = $result->fetch_assoc()) {
                         foreach ($row as $r) {
+                            $row_request_id = $row['RequestID'];
                             $seller_name=$row['UserName'];
                             $book_title=$row['title'];
                             $author = $row['author'];
                             $cover = $row['URL'];
                             $price = $row['SellingPrice'];
-                        } ?>
+                        } 
+                        $exchange_avail = false;
+                        if ($exchange_stmt = $db->prepare($exchange_query)) {
+                            $exchange_stmt->bind_param("d",$row_request_id);
+                            $exchange_stmt->execute();
+                            $exchange_result = $exchange_stmt->get_result();
+                            $exchange_row = $exchange_result->fetch_assoc();
+                            if ($exchange_result->num_rows > 0) {
+                                $exchange_avail = true; 
+                            }
+                            foreach ($exchange_row as $er) {
+                                $exchange_id = $exchange_row["ExchangeID"]; 
+                                $exchange_date = $exchange_row["ExchangeDate"]; 
+                                $exchange_time = $exchange_row["ExchangeTime"]; 
+                                $exchange_extra = $exchange_row["ExchangeInformation"]; 
+                            }
+                        } else {
+                           echo $db->error;
+                        }
+                    ?>
                         <div class="panel panel-primary">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#yourReq1">
                                 <h4 class="panel-title">
@@ -98,7 +124,17 @@ on YouTube when you are logged in -->
                                 <div class="panel-body"><h4>Location Info 1</h4></div>
                             </div>
                             <div class="panel-footer">Requesting from: <b><i><?php echo $seller_name; ?></b></i>
-                                <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
+                                <?php 
+                                    if ($exchange_avail) {
+                                ?>
+                                    
+                                        <h3>Exchange Date: <?php echo $exchange_date; ?></h3>
+                                        <h3>Exchange Time: <?php echo $exchange_time; ?></h3>
+                                        <p>Exchange Info: <?php echo $exchange_extra; ?></p>
+                                        <a class="btn btn-sm btn-success" role="button">Agree to Appointment</a>
+                                <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         
@@ -113,7 +149,7 @@ on YouTube when you are logged in -->
                     <h1 class="form-signin-heading" style="text-align:center;">BUYER REQUESTS</h1>
                     <div class="panel-group" id="accordion2">
                     <?php
-                    $buyer_query = "SELECT bu.UserName, b.title, b.author, bc.URL, co.SellingPrice, co.CopyID
+                    $buyer_query = "SELECT r.RequestID, bu.UserName, b.title, b.author, bc.URL, co.SellingPrice, co.CopyID
                                 FROM Request r
                                 INNER JOIN Copy co
                                 ON r.CopyID = co.CopyID
@@ -138,23 +174,27 @@ on YouTube when you are logged in -->
                     $result = $buyer_stmt->get_result();
                     while ($row = $result->fetch_assoc()) {
                         foreach ($row as $r) {
+                            $request_id=$row['RequestID'];
                             $buyer_name=$row['UserName'];
                             $book_title=$row['title'];
                             $author = $row['author'];
                             $cover = $row['URL'];
                             $price = $row['SellingPrice'];
                         } ?>
-                        <div class="panel panel-primary">
+                        <div id="request_<?php echo $request_id?>" class="panel panel-primary">
                             <div class="panel-heading" data-toggle="collapse" data-parent="#accordion2" href="#buyerReq1">
                                 <h4 class="panel-title">
                                     <?php echo $book_title; ?>
                                 </h4>
                             </div>
-                            <div id="buyerReq1" class="panel-collapse collapse">
+                            <div class="panel-collapse collapse">
                               <div class="panel-body"><h4>Book Info 1</h4></div>
                             </div>
                             <div class="panel-footer">Requested by: <b><i><?php echo $buyer_name; ?></b></i>
-                                <a class="btn btn-sm btn-success" role="button" href="appointment.php">Set an Appointment</a>
+                                <form action="appointment.php", method="POST">
+                                    <input name="request_id" id="request_<?php echo $request_id; ?>_hide" type="hidden" value="0">
+                                    <input class="btn btn-sm btn-success" id="request_<?php echo $request_id; ?>_button" onclick="set_appointment(this.id)" type="submit" value="Set up Appointment">
+                                </form>
                             </div>
                         </div>
                         
@@ -175,5 +215,6 @@ on YouTube when you are logged in -->
         </div>
 
         <script src="js/bootstrap.min.js"></script>
+        <script src="js/set_appointment.js"></script>
     </body>
 </html>
