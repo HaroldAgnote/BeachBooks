@@ -85,7 +85,7 @@
                         <div class="modal-dialog">
                             <!-- Modal content-->
                             <div class="modal-content">
-                            <form action="post_confirm.php" method="POST" role="form">
+                            <form action="post_confirm.php" method="POST" role="form" enctype="multipart/form-data">
                                 <div class="modal-header form-group">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4>BeachBooks</h4>
@@ -109,10 +109,14 @@
                                             <label for="book_price">Your Price: $</label>
                                             <input type="number" class="form-control" required name="book_price" id="book_price" min="0" value="0" step=".01">
                                             <input type="hidden" required name="book_id_hide"  id="postModalBookId" value="0">
+                                            <label for="fileToUpload">
+                                                Select image to upload:
+                                            </label>
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
                                     </div>
                                 </div>
                                 <div class="modal-footer form-group">
-                                  <button data-toggle="modal" id="post_button" class="btn btn-lg btn-success btn-block" type="submit">Post this Book</button>
+                                  <button data-toggle="modal" id="post_button" name="submit" class="btn btn-lg btn-success btn-block" type="submit">Post this Book</button>
                                    <button data-dismiss="modal" class="btn btn-lg btn-danger btn-block" type="reset">Cancel</button>
                                 </div>
                             </form>
