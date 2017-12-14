@@ -25,7 +25,11 @@ if ($db->connect_errno) {
         <?php include('nav.php'); ?>
         <main>
             <div class="container">
-                <a id="Signup_button" href="post.php" class="btn btn-success" role="button">Post Book</a>
+                <div class="alert alert-success alert-dismissable" style="display: none;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Request sent!
+                </div>
+                <a id="post_button" href="post.php" class="btn btn-success" role="button">Post Book</a>
                 <table class="table table-bordered" id="bookList">
                     <tr>
                         <th>Seller</th>
@@ -174,7 +178,12 @@ while($row = $result->fetch_assoc()) {
         <script src="js/loadBookModal.js"></script>
         <script>
             function request_book() {
+                if (localStorage["user"] == "Guest" ) {
+                    window.location.href="signup.php";
+                    return false;
+                }
                 console.log(copy_id);
+                $('.alert').show();
                 console.log("Hi :) ");
                 $.ajax({
                 url: 'request_book.php',
@@ -186,6 +195,13 @@ while($row = $result->fetch_assoc()) {
                 });
                 return false;
             }
+            var post_button = document.getElementById('post_button');
+            post_button.onclick = (function () {
+                if (localStorage["user"] == "Guest") {
+                    window.location.href="signup.php";
+                    return false;
+                }
+            });
         </script>
     </body>
 </html>
