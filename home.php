@@ -17,7 +17,7 @@
     <body>
         <!-- Fixed navbar -->
 <?php
-$db = new mysqli("localhost", "root", "SoIf7pZnY0DT", "beach_books");
+$db = new mysqli("localhost", "root", "beachbooks_prototype", "beach_books");
 if ($db->connect_errno) {
     echo "Failed to connect to MySQL: (" . $db->connect_errno . ") " . $db->connect_error;
 }
